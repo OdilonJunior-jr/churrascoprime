@@ -90,26 +90,28 @@
       width:min(1180px, 100%);
       min-height:100svh;
       margin:0 auto;
-      padding:clamp(24px,3vw,42px) clamp(18px,4vw,56px) clamp(22px,3vw,40px);
+      padding:clamp(30px,4vh,56px) clamp(18px,4vw,56px) clamp(22px,3vw,40px);
       display:flex;
       flex-direction:column;
       align-items:center;
-      justify-content:space-between;
+      justify-content:flex-start;
       gap:clamp(18px,3vh,30px);
     }
 
     .brand{
-      width:clamp(150px, 15vw, 215px);
+      width:clamp(168px, 13.6vw, 200px);
       height:auto;
-      filter:drop-shadow(0 16px 26px rgba(0,0,0,.86)) drop-shadow(0 0 18px rgba(255,66,0,.14));
-      opacity:.98;
+      display:block;
+      margin:0 auto 22px;
+      filter:drop-shadow(0 18px 28px rgba(0,0,0,.96)) drop-shadow(0 0 14px rgba(255,255,255,.10)) drop-shadow(0 0 18px rgba(255,66,0,.18));
+      opacity:.99;
     }
 
     .content{
-      width:min(760px, 100%);
-      margin-top:auto;
+      width:min(680px, 100%);
+      margin:0 auto;
       text-align:center;
-      padding:clamp(10px,1.3vw,18px) 0 0;
+      padding:clamp(92px,16vh,160px) 0 0;
       text-shadow:0 8px 24px rgba(0,0,0,.92);
     }
 
@@ -145,7 +147,7 @@
     }
 
     .lead{
-      max-width:680px;
+      max-width:600px;
       margin:clamp(14px,1.6vw,24px) auto 0;
       font-size:clamp(16px,1.35vw,20px);
       line-height:1.5;
@@ -154,7 +156,7 @@
     }
 
     .divider{
-      width:min(520px, 82%);
+      width:min(620px, 88%);
       margin:clamp(18px,2vw,28px) auto clamp(18px,2vw,28px);
       display:flex;
       align-items:center;
@@ -165,11 +167,15 @@
     .divider::after{
       content:"";
       flex:1;
-      height:1px;
-      background:linear-gradient(90deg, transparent, rgba(255,105,8,.95));
-      box-shadow:0 0 12px rgba(255,66,0,.36);
+      height:2px;
+      background:linear-gradient(90deg, transparent, rgba(255,105,8,.98));
+      box-shadow:0 0 14px rgba(255,66,0,.48);
     }
     .divider::after{ background:linear-gradient(90deg, rgba(255,105,8,.95), transparent); }
+    .divider::before,
+    .divider::after,
+    .footer-divider::before,
+    .footer-divider::after{ opacity:1; }
     .divider img{
       width:24px;
       height:30px;
@@ -238,7 +244,7 @@
       display:block;
       width:52px;
       height:3px;
-      margin:16px auto 0;
+      margin:14px auto 0;
       border-radius:999px;
       background:linear-gradient(90deg, #e81407, #ff7a1e 50%, #e81407);
       box-shadow:0 0 10px rgba(255,36,0,.74);
@@ -378,42 +384,43 @@
       width:min(760px, 100%);
       margin:clamp(22px,2.2vw,30px) auto 0;
       position:relative;
-      padding-bottom:34px;
+      padding-bottom:0;
     }
     .gallery-shell .gallery{
       width:100%;
       margin:0 auto;
     }
-    .gallery-curve{
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      height:38px;
-      pointer-events:none;
-      filter:drop-shadow(0 5px 12px rgba(0,0,0,.55));
-    }
-    .gallery-curve svg{ width:100%; height:100%; display:block; }
-    .gallery-curve path{
-      fill:none;
-      stroke:rgba(255,144,24,.78);
-      stroke-width:2;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-      opacity:.88;
-      filter:drop-shadow(0 0 7px rgba(255,98,0,.16));
-    }
 
+    .footer-divider{
+      width:min(620px, 88%);
+      margin:clamp(14px,1.5vw,22px) auto 0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+    }
+    .footer-divider::before,
+    .footer-divider::after{
+      content:"";
+      flex:1;
+      height:2px;
+      background:linear-gradient(90deg, transparent, rgba(255,122,20,.98));
+      box-shadow:0 0 12px rgba(255,70,0,.34);
+      opacity:1;
+    }
+    .footer-divider::after{
+      background:linear-gradient(90deg, rgba(255,122,20,.88), transparent);
+    }
     .footer-flame{
       width:38px;
-      margin:clamp(16px,1.5vw,22px) auto 0;
       filter:drop-shadow(0 0 13px rgba(255,53,0,.90));
       opacity:.96;
+      flex:0 0 auto;
     }
 
     @media (min-width: 1024px) and (max-height: 820px){
       .shell{ padding-top:22px; padding-bottom:18px; }
-      .brand{ width:145px; }
+      .brand{ width:168px; margin-bottom:14px; }
       .headline .white{ font-size:46px; }
       .headline .red{ font-size:40px; margin-top:10px; }
       .lead{ font-size:16px; margin-top:14px; }
@@ -425,87 +432,102 @@
       .cta{ min-height:54px; width:640px; margin-top:16px; font-size:24px; }
       .gallery{ width:670px; margin-top:16px; }
       .shot{ height:72px; }
-      .footer-flame{ width:28px; margin-top:10px; }
+      .footer-divider{ margin-top:10px; }
+      .footer-flame{ width:28px; }
     }
 
     @media (max-width: 680px){
       .page{
         min-height:100dvh;
         overflow-x:hidden;
+        overflow-y:auto;
         background:#000;
       }
-      .page::before,
-      .page::after{ display:none; }
-      .embers{ opacity:.50; }
+      .page::before{
+        display:block;
+        position:fixed;
+        inset:0;
+        z-index:-3;
+        background:url("assets/hero-churrasco.jpg") 74% 14% / cover no-repeat;
+        filter:saturate(1.08) contrast(1.08) brightness(.82);
+        transform:none;
+      }
+      .page::after{
+        display:block;
+        position:fixed;
+        inset:0;
+        z-index:-2;
+        background:
+          linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.02) 14%, rgba(0,0,0,.10) 32%, rgba(0,0,0,.58) 56%, rgba(0,0,0,.88) 76%, #000 100%),
+          radial-gradient(circle at 84% 20%, rgba(0,0,0,.03) 0 16%, rgba(0,0,0,.26) 46%, rgba(0,0,0,.72) 100%);
+      }
+      .embers{ opacity:.50; position:fixed; }
       .shell{
         width:100%;
-        max-width:480px;
+        max-width:none;
         min-height:100dvh;
-        margin:0 auto;
-        padding:14px 18px max(16px, env(safe-area-inset-bottom));
+        margin:0;
+        padding:0 0 max(12px, env(safe-area-inset-bottom));
         justify-content:flex-start;
         gap:0;
-        overflow:hidden;
+        overflow:visible;
         position:relative;
-        background:
-          linear-gradient(180deg, rgba(0,0,0,.70) 0%, rgba(0,0,0,.06) 18%, rgba(0,0,0,.06) 38%, #000 48%, #000 100%),
-          radial-gradient(circle at 50% 39%, rgba(255,55,0,.12), transparent 34%),
-          url("assets/hero-churrasco.jpg") 66% top / auto 47dvh no-repeat,
-          #000;
+        background:none;
       }
-      .shell::before{
-        content:"";
-        position:absolute;
-        inset:0;
-        z-index:0;
-        pointer-events:none;
-        background:
-          radial-gradient(circle at 76% 22%, transparent 0 18%, rgba(0,0,0,.18) 42%, rgba(0,0,0,.86) 100%),
-          linear-gradient(180deg, rgba(0,0,0,.40) 0%, rgba(0,0,0,.06) 26%, rgba(0,0,0,.50) 42%, #000 50%, #000 100%);
-      }
+      .shell::before{ display:none; }
       .brand,
       .content{ position:relative; z-index:1; }
-      .brand{
-        width:124px;
-        margin:0 auto;
-        filter:drop-shadow(0 12px 18px rgba(0,0,0,.90)) drop-shadow(0 0 10px rgba(255,69,0,.16));
-      }
       .content{
         width:100%;
-        margin-top:calc(38.5dvh - 124px);
-        padding:0;
+        max-width:404px;
+        min-height:auto;
+        margin:0 auto;
+        padding:118px 10px 14px;
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-start;
+      }
+      .brand{
+        width:170px;
+        margin:0 auto 18px;
+        filter:drop-shadow(0 14px 22px rgba(0,0,0,.96)) drop-shadow(0 0 12px rgba(255,255,255,.10)) drop-shadow(0 0 10px rgba(255,69,0,.14));
       }
       .headline .white{
-        font-size:clamp(39px, 10vw, 47px);
+        font-size:clamp(40px, 9.8vw, 46px);
         line-height:.95;
         letter-spacing:.04em;
       }
       .headline .red{
-        margin-top:9px;
-        font-size:clamp(31px, 8.35vw, 40px);
-        letter-spacing:.018em;
+        margin-top:8px;
+        font-size:clamp(30px, 7.9vw, 37px);
+        letter-spacing:.01em;
       }
       .lead{
         max-width:390px;
-        margin:18px auto 0;
+        margin:14px auto 0;
         font-size:clamp(15px, 3.6vw, 17px);
         line-height:1.38;
       }
       .divider{
         width:100%;
-        margin:18px auto 18px;
+        margin:16px auto 14px;
         gap:10px;
       }
+      .divider::before,
+      .divider::after,
+      .footer-divider::before,
+      .footer-divider::after{ opacity:1; }
       .divider img{ width:20px; height:25px; }
       .cards{
         width:100%;
         gap:8px;
+        margin-top:2px;
       }
       .card{
         min-height:76px;
         border-radius:11px;
         padding:10px 5px 13px;
-        background:rgba(5,5,5,.76);
+        background:rgba(5,5,5,.74);
         box-shadow:0 12px 24px rgba(0,0,0,.72), inset 0 -16px 18px rgba(255,100,0,.03), inset 0 1px 0 rgba(255,255,255,.03);
         backdrop-filter:none;
       }
@@ -521,7 +543,7 @@
       .cta{
         width:100%;
         min-height:66px;
-        margin-top:22px;
+        margin-top:18px;
         border-radius:12px;
         padding:0 60px 0 26px;
         font-size:clamp(23px, 6vw, 29px);
@@ -530,8 +552,8 @@
       .cta::after{ right:24px; font-size:34px; }
       .gallery-shell{
         width:100%;
-        margin-top:24px;
-        padding-bottom:28px;
+        margin-top:16px;
+        padding-bottom:0;
       }
       .gallery{
         width:100%;
@@ -545,31 +567,88 @@
       }
       .shot::before{ inset:-8px; filter:blur(12px); }
       .shot::after{ box-shadow:inset 0 0 16px rgba(0,0,0,.30); }
-      .gallery-curve{ height:34px; }
-      .gallery-curve path{ stroke-width:1.8; }
+      .footer-divider{
+        width:100%;
+        margin-top:14px;
+        padding-top:0;
+        gap:10px;
+      }
       .footer-flame{
         width:32px;
-        margin-top:17px;
       }
     }
 
-    @media (max-width: 380px){
-      .shell{ padding-left:15px; padding-right:15px; }
-      .brand{ width:112px; }
-      .content{ margin-top:calc(38dvh - 112px); }
+@media (max-width: 380px){
+      .shell{ padding-top:0; }
+      .content{ min-height:auto; padding:108px 8px 12px; }
+      .brand{ width:158px; margin:0 auto 18px; }
       .headline .white{ font-size:36px; }
       .headline .red{ font-size:29px; }
-      .lead{ font-size:14px; margin-top:14px; }
-      .divider{ margin:14px auto; }
+      .lead{ font-size:14px; margin-top:12px; }
+      .divider{ width:100%; margin:16px auto 14px; }
       .card{ min-height:68px; }
       .card .txt{ font-size:13px; }
       .cta{ min-height:58px; margin-top:18px; font-size:22px; }
-      .gallery-shell{ margin-top:18px; padding-bottom:24px; }
+      .gallery-shell{ margin-top:14px; padding-bottom:0; }
       .gallery{ margin-top:0; }
       .shot{ height:62px; }
-      .gallery-curve{ height:30px; }
-      .footer-flame{ width:28px; margin-top:12px; }
+      .footer-divider{ width:100%; margin-top:12px; padding-top:0; }
+      .footer-flame{ width:28px; }
     }
+  
+
+    /* Ajuste final do logo: maior, mais limpo e com base escura para leitura no hero */
+    .content{
+      padding-top:clamp(54px, 8vh, 92px);
+    }
+    .brand-lockup{
+      width:clamp(220px, 18vw, 272px);
+      aspect-ratio:1 / 1;
+      display:grid;
+      place-items:center;
+      margin:0 auto clamp(18px, 2.2vh, 26px);
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 50% 48%, rgba(0,0,0,.86) 0 58%, rgba(0,0,0,.50) 67%, rgba(0,0,0,.12) 76%, transparent 78%);
+      box-shadow:
+        0 22px 40px rgba(0,0,0,.78),
+        0 0 0 1px rgba(255,255,255,.06),
+        0 0 38px rgba(255,75,0,.18);
+      filter:drop-shadow(0 12px 24px rgba(0,0,0,.78));
+    }
+    .brand{
+      width:108%;
+      height:108%;
+      object-fit:contain;
+      margin:0;
+      opacity:1;
+      filter:
+        drop-shadow(0 6px 12px rgba(0,0,0,.74))
+        drop-shadow(0 0 10px rgba(255,255,255,.10))
+        drop-shadow(0 0 16px rgba(255,66,0,.22));
+    }
+
+    @media (max-width: 680px){
+      .content{
+        max-width:420px;
+        padding:clamp(48px, 7.4vh, 70px) 12px 14px;
+      }
+      .brand-lockup{
+        width:min(220px, 56vw);
+        margin-bottom:14px;
+        box-shadow:
+          0 18px 32px rgba(0,0,0,.86),
+          0 0 0 1px rgba(255,255,255,.05),
+          0 0 26px rgba(255,75,0,.14);
+      }
+      .brand{ width:109%; height:109%; }
+    }
+
+    @media (max-width: 380px){
+      .content{ padding:40px 10px 12px; }
+      .brand-lockup{ width:min(196px, 55vw); margin-bottom:12px; }
+    }
+
   </style>
 </head>
 <body>
@@ -577,9 +656,10 @@
     <div class="embers" aria-hidden="true"></div>
 
     <section class="shell">
-      <img class="brand" src="assets/logo-white-transparent.png" alt="Churrasco Prime Premium Events 2026">
-
       <div class="content">
+        <div class="brand-lockup" aria-label="Logo Churrasco Prime Premium Events 2026">
+          <img class="brand" src="assets/logo-churrasco-prime-clean-transparent.png" alt="Churrasco Prime Premium Events 2026">
+        </div>
         <h1 class="headline">
           <span class="white">Churrasco</span>
           <span class="red">Premium para Eventos</span>
@@ -607,14 +687,11 @@
             <figure class="shot"><img src="assets/faca.jpg" alt="Faca sobre tábua rústica"></figure>
             <figure class="shot"><img src="assets/carne-principal.jpg" alt="Carne premium fatiada"></figure>
           </div>
-          <div class="gallery-curve" aria-hidden="true">
-            <svg viewBox="0 0 760 38" preserveAspectRatio="none" role="presentation">
-              <path d="M10 8 H295 Q328 8 350 20 Q363 28 380 28 Q397 28 410 20 Q432 8 465 8 H750" />
-            </svg>
-          </div>
         </div>
 
-        <img class="footer-flame" src="assets/flame-transparent.png" alt="" aria-hidden="true">
+        <div class="footer-divider" aria-hidden="true">
+          <img class="footer-flame" src="assets/flame-transparent.png" alt="" aria-hidden="true">
+        </div>
       </div>
     </section>
   </main>
