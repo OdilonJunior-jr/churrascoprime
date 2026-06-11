@@ -649,6 +649,22 @@
       .brand-lockup{ width:min(196px, 55vw); margin-bottom:12px; }
     }
 
+
+    /* Galeria rotativa: 3 cards trocando em tempos diferentes sem repetir a mesma foto ao mesmo tempo */
+    .shot img{
+      transition:opacity .34s ease, transform .34s ease, filter .34s ease;
+      will-change:opacity, transform, filter;
+    }
+    .shot.is-changing img{
+      opacity:.16;
+      transform:scale(1.10);
+      filter:contrast(1.08) saturate(1.08) brightness(.62) blur(.5px);
+    }
+    .shot:hover img{
+      transform:scale(1.08);
+      filter:contrast(1.08) saturate(1.12) brightness(.93);
+    }
+
   </style>
 </head>
 <body>
@@ -682,10 +698,10 @@
         </a>
 
         <div class="gallery-shell" aria-label="Galeria Churrasco Prime">
-          <div class="gallery">
-            <figure class="shot"><img src="assets/carvao.jpg" alt="Carvão em brasa"></figure>
-            <figure class="shot"><img src="assets/faca.jpg" alt="Faca sobre tábua rústica"></figure>
-            <figure class="shot"><img src="assets/carne-principal.jpg" alt="Carne premium fatiada"></figure>
+          <div class="gallery" id="galleryRotativa">
+            <figure class="shot" data-rotator="0"><img src="assets/gallery/galeria-01-carvao.jpg" alt="Carvão em brasa"></figure>
+            <figure class="shot" data-rotator="1"><img src="assets/gallery/galeria-02-faca.jpg" alt="Faca sobre tábua rústica"></figure>
+            <figure class="shot" data-rotator="2"><img src="assets/gallery/galeria-03-carne-principal.jpg" alt="Carne premium fatiada"></figure>
           </div>
         </div>
 
@@ -695,5 +711,96 @@
       </div>
     </section>
   </main>
+  <script>
+    (() => {
+      const galleryPool = [
+        { src: "assets/gallery/galeria-01-carvao.jpg", alt: "Carvão em brasa" },
+        { src: "assets/gallery/galeria-02-faca.jpg", alt: "Faca sobre tábua rústica" },
+        { src: "assets/gallery/galeria-03-carne-principal.jpg", alt: "Carne premium fatiada" },
+        { src: "assets/gallery/galeria-04-carne-close.jpg", alt: "Carne grelhada fatiada" },
+        { src: "assets/gallery/galeria-05-pao-alho.jpg", alt: "Pão de alho artesanal" },
+        { src: "assets/gallery/galeria-06-espetinhos.jpg", alt: "Espetinhos e cortes na churrasqueira" },
+        { src: "assets/gallery/galeria-07-picanha-tabua.jpg", alt: "Picanha fatiada na tábua" },
+        { src: "assets/gallery/galeria-08-churrasqueira.jpg", alt: "Churrasco sendo preparado na grelha" },
+        { src: "assets/gallery/galeria-09-buffet-carnes.jpg", alt: "Buffet de carnes premium" },
+        { src: "assets/gallery/galeria-10-entradas.jpg", alt: "Entradas e acompanhamentos de churrasco" },
+        { src: "assets/gallery/galeria-11-linguicas.jpg", alt: "Linguiças e cortes servidos na tábua" },
+        { src: "assets/gallery/galeria-12-picanha-tabua-close.jpg", alt: "Picanha ao ponto com tomates" },
+        { src: "assets/gallery/galeria-13-carne-queijo.jpg", alt: "Carne premium com queijo derretido" }
+      ];
+
+      const speeds = [2000, 1800, 2100];
+      const cards = Array.from(document.querySelectorAll("#galleryRotativa [data-rotator]"));
+      const current = new Map();
+      const initialOffset = [350, 900, 1450];
+
+      if (!cards.length || galleryPool.length < cards.length) return;
+
+      const preload = () => {
+        galleryPool.forEach((item) => {
+          const img = new Image();
+          img.src = item.src;
+        });
+      };
+
+      const randomItem = (slotIndex) => {
+        const usedByOtherCards = new Set(
+          [...current.entries()]
+            .filter(([index]) => index !== slotIndex)
+            .map(([, src]) => src)
+        );
+        const ownCurrent = current.get(slotIndex);
+        const available = galleryPool.filter((item) => !usedByOtherCards.has(item.src) && item.src !== ownCurrent);
+        const fallback = galleryPool.filter((item) => item.src !== ownCurrent);
+        const options = available.length ? available : fallback.length ? fallback : galleryPool;
+        return options[Math.floor(Math.random() * options.length)];
+      };
+
+      const setCardImage = (card, item, animated = true) => {
+        const img = card.querySelector("img");
+        if (!img || !item) return;
+        const slotIndex = Number(card.dataset.rotator || 0);
+        current.set(slotIndex, item.src);
+
+        if (!animated) {
+          img.src = item.src;
+          img.alt = item.alt;
+          return;
+        }
+
+        card.classList.add("is-changing");
+        window.setTimeout(() => {
+          img.src = item.src;
+          img.alt = item.alt;
+          window.requestAnimationFrame(() => card.classList.remove("is-changing"));
+        }, 220);
+      };
+
+      const shuffle = (items) => {
+        const array = [...items];
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      };
+
+      const start = () => {
+        const firstImages = shuffle(galleryPool).slice(0, cards.length);
+
+        cards.forEach((card, index) => {
+          setCardImage(card, firstImages[index], false);
+          window.setTimeout(function rotateLoop(){
+            setCardImage(card, randomItem(index), true);
+            window.setTimeout(rotateLoop, speeds[index]);
+          }, speeds[index] + initialOffset[index]);
+        });
+      };
+
+      preload();
+      start();
+    })();
+  </script>
+
 </body>
 </html>
