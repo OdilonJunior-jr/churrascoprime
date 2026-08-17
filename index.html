@@ -6,6 +6,12 @@
   <title>Churrasco Prime | Premium para Eventos</title>
   <meta name="description" content="Churrasco premium para eventos corporativos, aniversários, resenhas e BBQ." />
 
+  <!-- Vercel Web Analytics (projeto HTML estático) -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
@@ -719,6 +725,22 @@
       </div>
     </section>
   </main>
+  <script>
+    // Evento do CTA principal: aparece em Custom Events quando disponível no plano da Vercel.
+    document.addEventListener('DOMContentLoaded', () => {
+      const cta = document.querySelector('.cta');
+      if (!cta) return;
+      cta.addEventListener('click', () => {
+        if (typeof window.va === 'function') {
+          window.va('event', {
+            name: 'Solicitar orçamento',
+            data: { canal: 'WhatsApp', origem: 'CTA principal' }
+          });
+        }
+      });
+    });
+  </script>
+
   <script>
     (() => {
       const galleryPool = [
