@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#ffffff" />
-  <title>Churrasco Prime | Bio Premium</title>
-  <meta name="description" content="Bio premium do Churrasco Prime com hero principal, experiências clicáveis, orçamento via WhatsApp e modo claro/escuro." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#ffffff" name="theme-color"/>
+<title>Churrasco Prime | Bio Premium</title>
+<meta content="Bio premium do Churrasco Prime com hero principal, experiências clicáveis, orçamento via WhatsApp e modo claro/escuro." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
     :root{
       --bg:#f7f6f3;
       --surface:#ffffff;
@@ -54,14 +55,16 @@
       color: #a0a0a0;
     }
     [data-theme="dark"] .menu-close {
-      color: #ffad69;
+      color:#ffad69;
+      background:rgba(255,255,255,.06);
+      border-color:rgba(255,255,255,.10);
     }
     [data-theme="dark"] .gallery-modal {
       background: linear-gradient(135deg, #121212 0%, #1a1510 52%, #1a1a1a 100%);
       color: #f5f1e8;
     }
     [data-theme="dark"] .gallery-close,
-    [data-theme="dark"] .gallery-nav { color:#ffad69; }
+    [data-theme="dark"] .gallery-nav { color:#ffad69; background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.10); }
     [data-theme="dark"] .gallery-caption { border-color:rgba(255,255,255,.08); }
     [data-theme="dark"] .gallery-caption span { color:#bdbdbd; }
     [data-theme="dark"] .gallery-thumb { border-color:rgba(255,255,255,.10); }
@@ -95,6 +98,8 @@
     body.lock{overflow:hidden}
     a{color:inherit;text-decoration:none}
     button{font:inherit}
+    button,a,[role="button"],[role="link"]{-webkit-tap-highlight-color:transparent}
+    button{margin:0}
     img,video{display:block;width:100%;height:100%;object-fit:cover}
 
     .shell{
@@ -129,7 +134,7 @@
     }
     .icon-btn:hover{transform:translateY(-2px);border-color:var(--line-strong);box-shadow:0 14px 28px rgba(0,0,0,.12)}
     .icon-btn.right{justify-self:end}
-    .icon-btn svg{width:20px;height:20px;display:block;flex:0 0 auto;margin:0 auto}
+    .icon-btn svg{width:20px;height:20px;display:block;flex:0 0 auto;margin:auto;pointer-events:none}
 
     .top-logo{
       display:flex;
@@ -234,15 +239,17 @@
     .hero-actions{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;justify-content:center}
     .mini-action{
       display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      text-align:center;line-height:1;
       min-height:42px;padding:0 15px;border-radius:13px;border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.08);color:#fff;font-size:12px;font-weight:800;
       backdrop-filter:blur(10px);transition:.22s ease;cursor:pointer;
     }
     .mini-action:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
     .mini-action.hot{background:linear-gradient(180deg,#f85614,#b61808);border-color:rgba(255,151,32,.38)}
-    .mini-action svg{width:16px;height:16px}
+    .mini-action svg{width:16px;height:16px;display:block;flex:0 0 16px;margin:0;pointer-events:none}
+    .mini-action img{display:block;flex:0 0 auto;margin:0;pointer-events:none}
 
-    .middle-stack{display:grid;gap:16px;grid-template-rows:repeat(4,1fr)}
+    .middle-stack{display:grid;gap:16px;grid-template-rows:repeat(4,1fr);position:relative;z-index:5}
 
     .project-card{
       position:relative;
@@ -256,6 +263,8 @@
       box-shadow:var(--shadow-card);
       transition:.25s ease;
       isolation:isolate;
+      z-index:10;
+      pointer-events:auto!important;
       display:block;
       width:100%;
       padding:0;
@@ -267,8 +276,6 @@
     .project-card:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(0,0,0,.28)}
     .project-card:active{transform:scale(.992)}
     .project-card:focus-visible{outline:2px solid rgba(255,113,0,.72);outline-offset:3px}
-    .whatsapp-card{position:relative;z-index:1}
-    .whatsapp-card > *{pointer-events:none}
     .project-card .bg{
       position:absolute;
       inset:0;
@@ -292,21 +299,35 @@
     .project-content h3{margin:0 0 8px;font-family:"Oswald",sans-serif;font-size:26px;line-height:.98;text-transform:uppercase}
     .project-content p{margin:0 0 13px;font-size:12px;line-height:1.28;color:#e3e3e3;max-width:300px}
     .linkline{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;color:#ff9a54;text-transform:uppercase;letter-spacing:.04em}
-    .arrow-chip{width:21px;height:21px;border-radius:7px;background:rgba(255,112,21,.12);display:grid;place-items:center;transition:.22s ease}
+    .arrow-chip{width:21px;height:21px;flex:0 0 21px;border-radius:7px;background:rgba(255,112,21,.12);display:flex;align-items:center;justify-content:center;padding:0;line-height:0;transition:.22s ease}
     .project-card:hover .arrow-chip{transform:translate(2px,-2px);background:rgba(255,112,21,.22)}
-    .arrow-chip svg{width:12px;height:12px}
+    .arrow-chip svg{width:12px;height:12px;display:block;margin:auto;pointer-events:none}
+
+    /* Card inteiro é o alvo de clique — sem overlay transparente. */
+    .project-card{
+      width:100%;
+      cursor:pointer;
+      touch-action:manipulation;
+      -webkit-tap-highlight-color:transparent;
+    }
+    /* Os elementos visuais não disputam o hit-test: o card é o alvo único. */
+    .project-card *{pointer-events:none!important;}
+    .project-card > .bg,
+    .project-card > .shade,
+    .project-card > .project-content,
+    .project-card > .gallery-preview-stage{pointer-events:none!important;}
 
     /* ===== GALERIA PRIME — acréscimo isolado ===== */
-    .gallery-trigger{border:0;padding:0;text-align:left;font:inherit;cursor:pointer;width:100%;display:block}
     .gallery-preview-stage{position:absolute;inset:0;background:#111}
     .gallery-preview-slide{position:absolute;inset:0;opacity:0;transition:opacity .5s ease;pointer-events:none}
     .gallery-preview-slide.active{opacity:1}
-    .gallery-backdrop{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:22px;background:rgba(20,17,14,.50);backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:.24s ease}
-    .gallery-backdrop.open{opacity:1;pointer-events:auto}
+    .gallery-backdrop{position:fixed;inset:0;z-index:70;display:none;place-items:center;padding:22px;background:rgba(20,17,14,.50);backdrop-filter:blur(7px);opacity:0;pointer-events:none;visibility:hidden}
+    .gallery-backdrop.open{display:grid;opacity:1;pointer-events:auto;visibility:visible}
     .gallery-modal{width:min(1040px,100%);max-height:min(92vh,900px);overflow:auto;border-radius:34px;background:linear-gradient(135deg,#fff 0%,#fffaf6 52%,#f3f1eb 100%);color:#111;border:1px solid rgba(0,0,0,.08);box-shadow:0 36px 90px rgba(0,0,0,.24);padding:24px;position:relative;transform:translateY(18px) scale(.985);transition:.25s ease}
     .gallery-backdrop.open .gallery-modal{transform:none}
-    .gallery-close{position:absolute;right:18px;top:14px;background:none;border:0;color:#d16300;cursor:pointer;width:42px;height:42px;display:grid;place-items:center;z-index:3}
-    .gallery-close svg{width:20px;height:20px}
+    .gallery-close{position:absolute;right:18px;top:14px;width:42px;height:42px;border-radius:13px;border:1px solid var(--line);background:rgba(255,255,255,.92);color:#d16300;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;line-height:0;z-index:3;box-shadow:0 10px 24px rgba(0,0,0,.08);transition:.22s ease}
+    .gallery-close:hover{transform:translateY(-2px);border-color:var(--line-strong);box-shadow:0 14px 28px rgba(0,0,0,.12)}
+    .gallery-close svg{width:19px;height:19px;display:block;margin:auto;pointer-events:none}
     .gallery-head{padding:8px 52px 18px 4px}
     .gallery-head small{display:block;color:#d16300;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
     .gallery-head h3{font-family:"Oswald",sans-serif;text-transform:uppercase;font-size:34px;line-height:1;margin:0}
@@ -317,18 +338,19 @@
     .gallery-slide{position:absolute;inset:0;opacity:0;transition:opacity .35s ease;pointer-events:none}
     .gallery-slide.active{opacity:1;pointer-events:auto}
     .gallery-slide img,.gallery-slide video{width:100%;height:100%;object-fit:contain;background:#0c0c0c}
-    .gallery-nav{width:46px;height:46px;border-radius:15px;border:1px solid rgba(0,0,0,.08);background:rgba(255,255,255,.92);display:grid;place-items:center;color:#d16300;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+    .gallery-nav{width:46px;height:46px;border-radius:15px;border:1px solid var(--line);background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;padding:0;line-height:0;color:#d16300;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.08);transition:.22s ease}
+    .gallery-nav:hover{border-color:var(--line-strong);box-shadow:0 14px 28px rgba(0,0,0,.12)}
     [data-theme="dark"] .gallery-nav{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.10)}
-    .gallery-nav svg{width:19px;height:19px}
+    .gallery-nav svg{width:19px;height:19px;display:block;margin:auto;pointer-events:none}
     .gallery-caption{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 4px;border-bottom:1px solid rgba(0,0,0,.08)}
     .gallery-caption strong{font-size:15px}
     .gallery-caption span{font-size:11px;color:#777}
     .gallery-thumbs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;padding-top:12px}
-    .gallery-thumb{height:72px;padding:0;border-radius:12px;border:1px solid rgba(0,0,0,.09);overflow:hidden;background:#111;cursor:pointer;opacity:.72}
+    .gallery-thumb{height:72px;padding:0;margin:0;border-radius:12px;border:1px solid rgba(0,0,0,.09);overflow:hidden;background:#111;cursor:pointer;opacity:.72;display:flex;align-items:center;justify-content:center;line-height:0}
     .gallery-thumb.active{opacity:1;outline:2px solid rgba(255,107,0,.72);outline-offset:-2px}
     .gallery-thumb img{width:100%;height:100%;object-fit:cover}
     .gallery-thumb.video-thumb{display:grid;place-items:center;color:#fff;background:linear-gradient(180deg,#ff7a15,#b71908);font-weight:800;font-size:18px}
-    .menu-gallery-card{position:relative;min-height:210px;display:block;width:100%;border:0;border-radius:22px;overflow:hidden;padding:0;background:#111;color:#fff;cursor:pointer;text-align:left;box-shadow:var(--shadow-card)}
+    .menu-gallery-card{position:relative;min-height:210px;display:block;width:100%;border:0;border-radius:22px;overflow:hidden;padding:0;margin:0;background:#111;color:#fff;cursor:pointer;text-align:left;box-shadow:var(--shadow-card);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
     .menu-gallery-card .gallery-preview-stage{z-index:0}
     .menu-gallery-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.20) 42%,rgba(0,0,0,.78));z-index:1;pointer-events:none}
     .menu-gallery-copy{position:absolute;left:18px;right:18px;bottom:16px;z-index:3}
@@ -371,19 +393,21 @@
     .quote-copy p{font-size:12px;line-height:1.45;color:#d8d8d8;margin:16px auto 18px;max-width:330px}
     .quote-features{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px}
     .quote-features div{min-height:54px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;text-align:center;padding:7px;font-size:8px;font-weight:800;line-height:1.2;text-transform:uppercase;color:#f2f2f2}
-    .quote-btn{min-height:56px;border-radius:14px;border:1px solid rgba(255,164,38,.36);background:linear-gradient(180deg,#f85512,#b61707);color:#fff;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 14px 28px rgba(0,0,0,.38);transition:.22s ease}
+    .quote-btn{min-height:56px;border-radius:14px;border:1px solid rgba(255,164,38,.36);background:linear-gradient(180deg,#f85512,#b61707);color:#fff;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;text-align:center;line-height:1;padding:0 16px;box-shadow:0 14px 28px rgba(0,0,0,.38);transition:.22s ease}
     .quote-btn:hover{transform:translateY(-2px);filter:saturate(1.08) brightness(1.03)}
-    .quote-btn svg{width:18px;height:18px;flex:0 0 18px}
+    .quote-btn svg{width:18px;height:18px;flex:0 0 18px;display:block;margin:0;pointer-events:none}
+    .quote-btn img{display:block;margin:0;pointer-events:none}
     .quote-card small{display:block;text-align:center;margin-top:12px;font-size:9px;color:#aeaeae}
 
     footer{display:flex;justify-content:center;align-items:center;padding:28px 0 0;font-size:11px;color:#6f6f6f}
+    .icon-btn:focus-visible,.menu-close:focus-visible,.gallery-close:focus-visible,.gallery-nav:focus-visible,.gallery-thumb:focus-visible,.mini-action:focus-visible,.quote-btn:focus-visible,.menu-gallery-card:focus-visible,.menu-link:focus-visible{outline:2px solid rgba(255,113,0,.78);outline-offset:3px}
 
     .modal-backdrop{
-      position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:22px;
+      position:fixed;inset:0;z-index:50;display:none;place-items:center;padding:22px;
       background:rgba(20,17,14,.42);backdrop-filter:blur(5px);
-      opacity:0;pointer-events:none;transition:.24s ease;
+      opacity:0;pointer-events:none;visibility:hidden;
     }
-    .modal-backdrop.open{opacity:1;pointer-events:auto}
+    .modal-backdrop.open{display:grid;opacity:1;pointer-events:auto;visibility:visible}
 
     .menu-modal{
       width:min(760px,100%);
@@ -406,13 +430,15 @@
       position:relative;
       background:linear-gradient(135deg,#fff 0%,#fffaf6 52%,#f3f1eb 100%);
     }
-    .menu-close{position:absolute;right:22px;top:18px;background:none;border:0;color:#d16300;cursor:pointer;width:40px;height:40px;display:grid;place-items:center}
-    .menu-close svg{width:20px;height:20px}
+    .menu-close{position:absolute;right:22px;top:18px;width:42px;height:42px;border-radius:13px;border:1px solid var(--line);background:rgba(255,255,255,.92);color:#d16300;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;line-height:0;box-shadow:0 10px 24px rgba(0,0,0,.08);transition:.22s ease}
+    .menu-close:hover{transform:translateY(-2px);border-color:var(--line-strong);box-shadow:0 14px 28px rgba(0,0,0,.12)}
+    .menu-close svg{width:19px;height:19px;display:block;margin:auto;pointer-events:none}
     .menu-label{color:#d16300;letter-spacing:.23em;font-size:11px;margin:4px 0 20px;font-weight:800}
-    .menu-link{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;padding:17px 0;border-bottom:1px solid rgba(0,0,0,.08)}
+    .menu-link{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:center;padding:17px 0;border-bottom:1px solid rgba(0,0,0,.08)}
     .menu-link strong{font-family:"Oswald",sans-serif;font-size:20px;text-transform:uppercase}
-    .menu-link small{font-size:9px;color:#d16300;display:flex;align-items:center;gap:7px;text-transform:uppercase;font-weight:800}
-    .menu-link svg{width:18px;height:18px;color:#d16300}
+    .menu-link small{font-size:9px;color:#d16300;display:flex;align-items:center;justify-content:center;gap:7px;text-transform:uppercase;font-weight:800;white-space:nowrap}
+    .menu-link svg{width:18px;height:18px;color:#d16300;display:block;margin:auto;pointer-events:none}
+    .menu-link small svg{width:15px;height:15px;margin:0}
 
     .brand-intro{
       position:fixed;
@@ -464,13 +490,6 @@
       82%{opacity:1;transform:scale(1.10)}
       100%{opacity:0;transform:scale(1.42)}
     }
-    @keyframes introPlate{
-      0%{opacity:0;transform:scale(.76)}
-      20%{opacity:1;transform:scale(.94)}
-      40%{opacity:1;transform:scale(1)}
-      72%{opacity:1;transform:scale(1.02)}
-      100%{opacity:0;transform:scale(1.28)}
-    }
     @keyframes introGlow{
       0%{opacity:0;transform:scale(.7)}
       28%{opacity:1;transform:scale(1)}
@@ -513,7 +532,7 @@
       }
       .icon-btn:first-child{justify-self:start}
       .icon-btn.right{justify-self:end}
-      .icon-btn svg{width:18px;height:18px;display:block;margin:auto;transform:none}
+      .icon-btn svg{width:18px;height:18px;display:block;margin:auto;transform:none;pointer-events:none}
       .top-logo{
         grid-column:2;
         position:relative;
@@ -560,6 +579,8 @@
       .menu-label{margin-bottom:8px}
       .menu-link{padding:13px 0}
       .menu-link strong{font-size:17px}
+      .menu-close,.gallery-close{width:38px;height:38px;border-radius:12px}
+      .menu-close svg,.gallery-close svg{width:17px;height:17px}
       .menu-gallery-card{min-height:190px}
       .gallery-backdrop{padding:10px}
       .gallery-modal{border-radius:26px;padding:16px;max-height:94vh}
@@ -604,205 +625,193 @@
   </style>
 </head>
 <body class="intro-active">
-  <div class="brand-intro" id="brandIntro" aria-hidden="true">
-    <img src="assets/logo-churrasco-prime-anexada-transparente.png" alt="Logo Churrasco Prime">
-  </div>
-
-  <main class="shell">
-    <header class="topbar">
-      <button type="button" class="icon-btn" id="menuBtn" aria-label="Abrir menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="5" r="1.5"/><circle cx="12" cy="5" r="1.5"/><circle cx="19" cy="5" r="1.5"/><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/><circle cx="5" cy="19" r="1.5"/><circle cx="12" cy="19" r="1.5"/><circle cx="19" cy="19" r="1.5"/></svg>
-      </button>
-
-      <div class="top-logo" aria-label="Churrasco Prime Premium Events">
-        <img src="assets/flame-transparent.png" alt="">
-        <div class="top-logo-copy"><strong>Churrasco Prime</strong><small>Premium Events · 2026</small></div>
-      </div>
-
-      <button type="button" class="icon-btn right" id="themeToggle" aria-label="Alternar modo escuro" title="Modo escuro">
-        <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      </button>
-    </header>
-
-    <section class="desktop-grid">
-      <article class="hero-card" id="inicio">
-        <div class="hero-media">
-          <picture>
-            <source media="(max-width:760px)" srcset="assets/hero-mobile.png">
-            <img src="assets/hero-mobile.png" alt="Equipe do Churrasco Prime em uma composição com fogo e carnes na brasa">
-          </picture>
-        </div>
-        <div class="hero-badge"><i></i> experiência premium</div>
-        <img class="hero-center-logo" src="assets/logo-churrasco-prime-clean-transparent.png" alt="Logo Churrasco Prime centralizada">
-        <div class="hero-content">
-          <p class="hero-eyebrow">O fogo é o começo</p>
-          <h1 class="hero-title">A experiência é <span>Prime.</span></h1>
-          <p class="hero-sub">Churrasco premium para eventos corporativos, aniversários, resenhas e BBQ — feito para transformar o momento ao redor da churrasqueira.</p>
-          <div class="hero-actions">
-            <a class="mini-action hot" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20meu%20evento.%20Posso%20passar%20a%20data%2C%20o%20tipo%20de%20evento%20e%20o%20n%C3%BAmero%20de%20convidados." target="_blank" rel="noreferrer">
-              <img class="wa-brand-icon wa-brand-icon-img" src="assets/whatsapp-original-icon.png" alt="" aria-hidden="true">
+<div aria-hidden="true" class="brand-intro" id="brandIntro">
+<img alt="Logo Churrasco Prime" src="assets/logo-churrasco-prime-anexada-transparente.png"/>
+</div>
+<main class="shell">
+<header class="topbar">
+<button aria-label="Abrir menu" class="icon-btn" id="menuBtn" type="button">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="5" cy="5" r="1.5"></circle><circle cx="12" cy="5" r="1.5"></circle><circle cx="19" cy="5" r="1.5"></circle><circle cx="5" cy="12" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle><circle cx="5" cy="19" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle><circle cx="19" cy="19" r="1.5"></circle></svg>
+</button>
+<div aria-label="Churrasco Prime Premium Events" class="top-logo">
+<img alt="" src="assets/flame-transparent.png"/>
+<div class="top-logo-copy"><strong>Churrasco Prime</strong><small>Premium Events · 2026</small></div>
+</div>
+<button aria-label="Alternar modo escuro" class="icon-btn right" id="themeToggle" title="Modo escuro" type="button">
+<svg fill="none" id="iconMoon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+<svg fill="none" id="iconSun" stroke="currentColor" stroke-width="2" style="display:none" viewbox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg>
+</button>
+</header>
+<section class="desktop-grid">
+<article class="hero-card" id="inicio">
+<div class="hero-media">
+<picture>
+<source media="(max-width:760px)" srcset="assets/hero-mobile.png"/>
+<img alt="Equipe do Churrasco Prime em uma composição com fogo e carnes na brasa" src="assets/hero-mobile.png"/>
+</picture>
+</div>
+<div class="hero-badge"><i></i> experiência premium</div>
+<img alt="Logo Churrasco Prime centralizada" class="hero-center-logo" src="assets/logo-churrasco-prime-clean-transparent.png"/>
+<div class="hero-content">
+<p class="hero-eyebrow">O fogo é o começo</p>
+<h1 class="hero-title">A experiência é <span>Prime.</span></h1>
+<p class="hero-sub">Churrasco premium para eventos corporativos, aniversários, resenhas e BBQ — feito para transformar o momento ao redor da churrasqueira.</p>
+<div class="hero-actions">
+<a class="mini-action hot" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20meu%20evento.%20Posso%20passar%20a%20data%2C%20o%20tipo%20de%20evento%20e%20o%20n%C3%BAmero%20de%20convidados." rel="noreferrer" target="_blank">
+<img alt="" aria-hidden="true" class="wa-brand-icon wa-brand-icon-img" src="assets/whatsapp-original-icon.png"/>
               Solicitar orçamento
             </a>
-            <button type="button" class="mini-action" id="heroGalleryBtn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+<button class="mini-action" id="heroGalleryBtn" type="button">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="18" rx="3" width="18" x="3" y="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
               Ver galeria
             </button>
-          </div>
-        </div>
-      </article>
-
-      <div class="middle-stack" aria-label="Experiências Churrasco Prime">
-        <a class="project-card whatsapp-card" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20evento%20corporativo.%20Pode%20me%20explicar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" rel="noreferrer">
-          <img class="bg" src="assets/card-churrasco-prime-evento.png" alt="Churrasco Prime preparando espetinhos em um evento">
-          <div class="shade"></div>
-          <div class="project-content">
-            <span class="project-kicker">Eventos</span>
-            <h3>Corporativos</h3>
-            <p>Uma experiência de churrasco pensada para reunir equipes, clientes e convidados.</p>
-            <span class="linkline">Pedir orçamento <span class="arrow-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span></span>
-          </div>
-        </a>
-
-        <a class="project-card red whatsapp-card" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20anivers%C3%A1rio.%20Pode%20me%20enviar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" rel="noreferrer">
-          <img class="bg" src="assets/gallery/galeria-10-entradas.jpg" alt="Entradas e comemoração de aniversário com churrasco">
-          <div class="shade"></div>
-          <div class="project-content">
-            <span class="project-kicker">Celebrações</span>
-            <h3>Aniversários</h3>
-            <p>Comida, fogo e clima de celebração em uma experiência feita para marcar o momento.</p>
-            <span class="linkline">Quero conversar <span class="arrow-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span></span>
-          </div>
-        </a>
-
-        <a class="project-card orange whatsapp-card" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20montar%20uma%20resenha%20%2F%20BBQ.%20Pode%20me%20passar%20as%20op%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento%3F" rel="noreferrer">
-          <img class="bg" src="assets/gallery/galeria-08-churrasqueira.jpg" alt="Carne sendo preparada na churrasqueira">
-          <div class="shade"></div>
-          <div class="project-content">
-            <span class="project-kicker">Fogo & experiência</span>
-            <h3>Resenhas & BBQ</h3>
-            <p>Para encontros em que a churrasqueira deixa de ser detalhe e vira parte principal da experiência.</p>
-            <span class="linkline">Montar meu evento <span class="arrow-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span></span>
-          </div>
-        </a>
-
-        <button type="button" class="project-card gallery-trigger" id="galleryCard">
-          <div class="gallery-preview-stage gallery-rotator">
-            <div class="gallery-preview-slide active" data-kind="image"><img src="assets/gallery/prime-01.jpg" alt="Cortes na brasa"></div>
-            <div class="gallery-preview-slide" data-kind="image"><img src="assets/gallery/prime-03.jpg" alt="Entradas do Churrasco Prime"></div>
-            <div class="gallery-preview-slide" data-kind="image"><img src="assets/gallery/prime-06.jpg" alt="Picanha fatiada"></div>
-            <div class="gallery-preview-slide" data-kind="image"><img src="assets/gallery/prime-09.jpg" alt="Queijo no espeto"></div>
-            <div class="gallery-preview-slide" data-kind="image"><img src="assets/gallery/prime-12.jpg" alt="Especialidade com bacon"></div>
-          </div>
-          <div class="shade"></div>
-          <div class="project-content">
-            <span class="project-kicker">Veja de perto</span>
-            <h3>Galeria Prime</h3>
-            <p>Fotos reais e vídeo do serviço, dos cortes e dos bastidores.</p>
-            <span class="linkline">Abrir galeria <span class="arrow-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span></span>
-          </div>
-        </button>
-      </div>
-
-      <aside class="quote-card" id="orcamento">
-        <video class="quote-video video-a" autoplay muted loop playsinline preload="auto" aria-label="Vídeo de experiência do Churrasco Prime">
-          <source src="assets/videos/video-card-01.mp4" type="video/mp4">
-        </video>
-        <video class="quote-video video-b" autoplay muted loop playsinline preload="auto" aria-label="Segundo vídeo de experiência do Churrasco Prime">
-          <source src="assets/videos/video-card-02.mp4" type="video/mp4">
-        </video>
-        <div class="quote-notch">Seu evento</div>
-        <div class="quote-copy">
-          <img class="quote-flame" src="assets/flame-transparent.png" alt="">
-          <h2>Churrasco de verdade.<span>Experiência Prime.</span></h2>
-          <p>Conte o tipo de evento, a data e o número de convidados. A conversa começa direto pelo WhatsApp.</p>
-          <div class="quote-features">
-            <div>Corporativo</div>
-            <div>Aniversário</div>
-            <div>Resenha & BBQ</div>
-          </div>
-          <a class="quote-btn" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20meu%20evento.%20Posso%20passar%20a%20data%2C%20o%20tipo%20de%20evento%20e%20o%20n%C3%BAmero%20de%20convidados." target="_blank" rel="noreferrer">
-            <img class="wa-brand-icon wa-brand-icon-img" src="assets/whatsapp-original-icon.png" alt="" aria-hidden="true">
+</div>
+</div>
+</article>
+<div aria-label="Experiências Churrasco Prime" class="middle-stack">
+<article aria-label="Abrir conversa no WhatsApp" class="project-card" data-url="https://api.whatsapp.com/send?phone=5534992478039&amp;text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20evento%20corporativo.%20Pode%20me%20explicar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" onclick="window.location.href=this.dataset.url" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href=this.dataset.url}" role="link" tabindex="0">
+<img alt="Churrasco Prime preparando espetinhos em um evento" class="bg" src="assets/card-churrasco-prime-evento.png"/>
+<div class="shade"></div>
+<div class="project-content">
+<span class="project-kicker">Eventos</span>
+<h3>Corporativos</h3>
+<p>Uma experiência de churrasco pensada para reunir equipes, clientes e convidados.</p>
+<span class="linkline">Pedir orçamento <span class="arrow-chip"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></span></span>
+</div>
+</article>
+<article aria-label="Abrir conversa no WhatsApp" class="project-card red" data-url="https://api.whatsapp.com/send?phone=5534992478039&amp;text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20anivers%C3%A1rio.%20Pode%20me%20enviar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" onclick="window.location.href=this.dataset.url" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href=this.dataset.url}" role="link" tabindex="0">
+<img alt="Entradas e comemoração de aniversário com churrasco" class="bg" src="assets/gallery/galeria-10-entradas.jpg"/>
+<div class="shade"></div>
+<div class="project-content">
+<span class="project-kicker">Celebrações</span>
+<h3>Aniversários</h3>
+<p>Comida, fogo e clima de celebração em uma experiência feita para marcar o momento.</p>
+<span class="linkline">Quero conversar <span class="arrow-chip"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></span></span>
+</div>
+</article>
+<article aria-label="Abrir conversa no WhatsApp" class="project-card orange" data-url="https://api.whatsapp.com/send?phone=5534992478039&amp;text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20montar%20uma%20resenha%20%2F%20BBQ.%20Pode%20me%20passar%20as%20op%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento%3F" onclick="window.location.href=this.dataset.url" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href=this.dataset.url}" role="link" tabindex="0">
+<img alt="Carne sendo preparada na churrasqueira" class="bg" src="assets/gallery/galeria-08-churrasqueira.jpg"/>
+<div class="shade"></div>
+<div class="project-content">
+<span class="project-kicker">Fogo &amp; experiência</span>
+<h3>Resenhas &amp; BBQ</h3>
+<p>Para encontros em que a churrasqueira deixa de ser detalhe e vira parte principal da experiência.</p>
+<span class="linkline">Montar meu evento <span class="arrow-chip"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></span></span>
+</div>
+</article>
+<article aria-label="Abrir Galeria Prime" class="project-card" id="galleryCard" onclick="var m=document.getElementById('galleryModal');m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.classList.add('lock')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" role="button" tabindex="0">
+<div class="gallery-preview-stage gallery-rotator">
+<div class="gallery-preview-slide active" data-kind="image"><img alt="Cortes na brasa" src="assets/gallery/prime-01.jpg"/></div>
+<div class="gallery-preview-slide" data-kind="image"><img alt="Entradas do Churrasco Prime" src="assets/gallery/prime-03.jpg"/></div>
+<div class="gallery-preview-slide" data-kind="image"><img alt="Picanha fatiada" src="assets/gallery/prime-06.jpg"/></div>
+<div class="gallery-preview-slide" data-kind="image"><img alt="Queijo no espeto" src="assets/gallery/prime-09.jpg"/></div>
+<div class="gallery-preview-slide" data-kind="image"><img alt="Especialidade com bacon" src="assets/gallery/prime-12.jpg"/></div>
+</div>
+<div class="shade"></div>
+<div class="project-content">
+<span class="project-kicker">Veja de perto</span>
+<h3>Galeria Prime</h3>
+<p>Fotos reais e vídeo do serviço, dos cortes e dos bastidores.</p>
+<span class="linkline">Abrir galeria <span class="arrow-chip"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></span></span>
+</div>
+</article>
+</div>
+<aside class="quote-card" id="orcamento">
+<video aria-label="Vídeo de experiência do Churrasco Prime" autoplay="" class="quote-video video-a" loop="" muted="" playsinline="" preload="auto">
+<source src="assets/videos/video-card-01.mp4" type="video/mp4"/>
+</video>
+<video aria-label="Segundo vídeo de experiência do Churrasco Prime" autoplay="" class="quote-video video-b" loop="" muted="" playsinline="" preload="auto">
+<source src="assets/videos/video-card-02.mp4" type="video/mp4"/>
+</video>
+<div class="quote-notch">Seu evento</div>
+<div class="quote-copy">
+<img alt="" class="quote-flame" src="assets/flame-transparent.png"/>
+<h2>Churrasco de verdade.<span>Experiência Prime.</span></h2>
+<p>Conte o tipo de evento, a data e o número de convidados. A conversa começa direto pelo WhatsApp.</p>
+<div class="quote-features">
+<div>Corporativo</div>
+<div>Aniversário</div>
+<div>Resenha &amp; BBQ</div>
+</div>
+<a class="quote-btn" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20meu%20evento.%20Posso%20passar%20a%20data%2C%20o%20tipo%20de%20evento%20e%20o%20n%C3%BAmero%20de%20convidados." rel="noreferrer" target="_blank">
+<img alt="" aria-hidden="true" class="wa-brand-icon wa-brand-icon-img" src="assets/whatsapp-original-icon.png"/>
             Solicitar orçamento
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-          </a>
-          <small>Atendimento iniciado pelo WhatsApp.</small>
-        </div>
-      </aside>
-    </section>
-
-    <footer>Churrasco Prime · Premium Events · 2026</footer>
-  </main>
-
-  <div class="modal-backdrop" id="menuModal" aria-hidden="true">
-    <div class="menu-modal" role="dialog" aria-modal="true" aria-label="Menu principal">
-      <button type="button" class="menu-close" id="closeMenu" aria-label="Fechar menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
-      <div>
-        <div class="menu-label">MENU PRIME</div>
-        <a class="menu-link closeOnClick" href="#inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg><strong>Início</strong><small>Ver <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></small></a>
-        <a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20evento%20corporativo.%20Pode%20me%20explicar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><strong>Eventos Corporativos</strong><small>Orçamento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></small></a>
-        <a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20anivers%C3%A1rio.%20Pode%20me%20enviar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2h8"/><path d="M12 2v5"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M4 13h16"/></svg><strong>Aniversários</strong><small>Orçamento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></small></a>
-        <a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20montar%20uma%20resenha%20%2F%20BBQ.%20Pode%20me%20passar%20as%20op%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento%3F" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-.7-1.2-.8-2.5.5-4 0 2 1.5 3 2.5 4 1.4 1.4 2 2.7 2 4.5a4.5 4.5 0 0 1-9 0c0-1 .3-2 .8-2.8.2 1.2.8 2.2 1.7 3.8Z"/></svg><strong>Resenhas & BBQ</strong><small>Orçamento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></small></a>
-      </div>
-      <button type="button" class="menu-gallery-card gallery-trigger" id="menuGalleryCard">
-        <div class="gallery-preview-stage gallery-rotator">
-          <div class="gallery-preview-slide active" data-kind="image"><img src="assets/gallery/prime-04.jpg" alt="Especialidade do Churrasco Prime"></div>
-          <div class="gallery-preview-slide" data-kind="image"><img src="assets/gallery/prime-07.jpg" alt="Asinhas preparadas"></div>
-          <div class="gallery-preview-slide" data-kind="image"><img src="assets/gallery/prime-10.jpg" alt="Linguiças artesanais"></div>
-          <div class="gallery-preview-slide" data-kind="image"><img src="assets/gallery/prime-11.jpg" alt="Cortes servidos na tábua"></div>
-        </div>
-        <div class="menu-gallery-copy">
-          <small>Fotos reais + vídeo</small>
-          <strong>Galeria Prime</strong>
-          <span>Abrir galeria <span class="arrow-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span></span>
-        </div>
-      </button>
-    </div>
-  </div>
-
-  <div class="gallery-backdrop" id="galleryModal" aria-hidden="true">
-    <div class="gallery-modal" role="dialog" aria-modal="true" aria-label="Galeria Prime">
-      <button type="button" class="gallery-close" id="closeGallery" aria-label="Fechar galeria"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
-      <div class="gallery-head"><small>Galeria Prime</small><h3>Fotos reais e vídeo</h3><p>Registros dos cortes, entradas, brasa e bastidores do Churrasco Prime.</p></div>
-      <div class="gallery-stage-wrap">
-        <button type="button" class="gallery-nav" id="prevGallery" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
-        <div class="gallery-stage" id="galleryStage">
-        <div class="gallery-slide active" data-title="Cortes na brasa" data-kind="image"><img src="assets/gallery/prime-01.jpg" alt="Cortes na brasa"></div>
-        <div class="gallery-slide" data-title="Churrasqueira e espetos" data-kind="image"><img src="assets/gallery/prime-02.jpg" alt="Churrasqueira e espetos"></div>
-        <div class="gallery-slide" data-title="Entradas na tábua" data-kind="image"><img src="assets/gallery/prime-03.jpg" alt="Entradas na tábua"></div>
-        <div class="gallery-slide" data-title="Pão de alho artesanal" data-kind="image"><img src="assets/gallery/prime-04.jpg" alt="Pão de alho artesanal"></div>
-        <div class="gallery-slide" data-title="Entradas e frango" data-kind="image"><img src="assets/gallery/prime-05.jpg" alt="Entradas e frango"></div>
-        <div class="gallery-slide" data-title="Picanha fatiada" data-kind="image"><img src="assets/gallery/prime-06.jpg" alt="Picanha fatiada"></div>
-        <div class="gallery-slide" data-title="Asinhas temperadas" data-kind="image"><img src="assets/gallery/prime-07.jpg" alt="Asinhas temperadas"></div>
-        <div class="gallery-slide" data-title="Cortes na churrasqueira" data-kind="image"><img src="assets/gallery/prime-08.jpg" alt="Cortes na churrasqueira"></div>
-        <div class="gallery-slide" data-title="Queijo no espeto" data-kind="image"><img src="assets/gallery/prime-09.jpg" alt="Queijo no espeto"></div>
-        <div class="gallery-slide" data-title="Linguiças artesanais" data-kind="image"><img src="assets/gallery/prime-10.jpg" alt="Linguiças artesanais"></div>
-        <div class="gallery-slide" data-title="Cortes servidos" data-kind="image"><img src="assets/gallery/prime-11.jpg" alt="Cortes servidos"></div>
-        <div class="gallery-slide" data-title="Especialidade com bacon" data-kind="image"><img src="assets/gallery/prime-12.jpg" alt="Especialidade com bacon"></div>
-        <div class="gallery-slide" data-title="Espetinhos em preparo" data-kind="image"><img src="assets/gallery/prime-13.jpg" alt="Espetinhos em preparo"></div>
-        <div class="gallery-slide" data-title="Vídeo do Churrasco Prime" data-kind="video"><video muted playsinline controls preload="metadata"><source src="assets/videos/galeria-prime.mp4" type="video/mp4"></video></div>
-        </div>
-        <button type="button" class="gallery-nav" id="nextGallery" aria-label="Próxima"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
-      </div>
-      <div class="gallery-caption"><strong id="galleryTitle">Cortes na brasa</strong><span id="galleryCount">Foto 1 de 14</span></div>
-      <div class="gallery-thumbs">
-      <button type="button" class="gallery-thumb active" data-index="0" aria-label="Cortes na brasa"><img src="assets/gallery/prime-01.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="1" aria-label="Churrasqueira e espetos"><img src="assets/gallery/prime-02.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="2" aria-label="Entradas na tábua"><img src="assets/gallery/prime-03.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="3" aria-label="Pão de alho artesanal"><img src="assets/gallery/prime-04.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="4" aria-label="Entradas e frango"><img src="assets/gallery/prime-05.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="5" aria-label="Picanha fatiada"><img src="assets/gallery/prime-06.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="6" aria-label="Asinhas temperadas"><img src="assets/gallery/prime-07.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="7" aria-label="Cortes na churrasqueira"><img src="assets/gallery/prime-08.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="8" aria-label="Queijo no espeto"><img src="assets/gallery/prime-09.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="9" aria-label="Linguiças artesanais"><img src="assets/gallery/prime-10.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="10" aria-label="Cortes servidos"><img src="assets/gallery/prime-11.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="11" aria-label="Especialidade com bacon"><img src="assets/gallery/prime-12.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb" data-index="12" aria-label="Espetinhos em preparo"><img src="assets/gallery/prime-13.jpg" alt=""></button>
-      <button type="button" class="gallery-thumb video-thumb" data-index="13" aria-label="Abrir vídeo">▶</button>
-      </div>
-    </div>
-  </div>
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+</a>
+<small>Atendimento iniciado pelo WhatsApp.</small>
+</div>
+</aside>
+</section>
+<footer>Churrasco Prime · Premium Events · 2026</footer>
+</main>
+<div aria-hidden="true" class="modal-backdrop" id="menuModal">
+<div aria-label="Menu principal" aria-modal="true" class="menu-modal" role="dialog">
+<button aria-label="Fechar menu" class="menu-close" id="closeMenu" type="button"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+<div>
+<div class="menu-label">MENU PRIME</div>
+<a class="menu-link closeOnClick" href="#inicio"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 11 12 4l9 7"></path><path d="M5 10v10h14V10"></path></svg><strong>Início</strong><small>Ver <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></small></a>
+<a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20evento%20corporativo.%20Pode%20me%20explicar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" rel="noreferrer" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg><strong>Eventos Corporativos</strong><small>Orçamento <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></small></a>
+<a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20anivers%C3%A1rio.%20Pode%20me%20enviar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" rel="noreferrer" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8 2h8"></path><path d="M12 2v5"></path><rect height="12" rx="2" width="16" x="4" y="8"></rect><path d="M4 13h16"></path></svg><strong>Aniversários</strong><small>Orçamento <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></small></a>
+<a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20montar%20uma%20resenha%20%2F%20BBQ.%20Pode%20me%20passar%20as%20op%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento%3F" rel="noreferrer" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-.7-1.2-.8-2.5.5-4 0 2 1.5 3 2.5 4 1.4 1.4 2 2.7 2 4.5a4.5 4.5 0 0 1-9 0c0-1 .3-2 .8-2.8.2 1.2.8 2.2 1.7 3.8Z"></path></svg><strong>Resenhas &amp; BBQ</strong><small>Orçamento <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></small></a>
+</div>
+<button class="menu-gallery-card" id="menuGalleryCard" type="button">
+<div class="gallery-preview-stage gallery-rotator">
+<div class="gallery-preview-slide active" data-kind="image"><img alt="Especialidade do Churrasco Prime" src="assets/gallery/prime-04.jpg"/></div>
+<div class="gallery-preview-slide" data-kind="image"><img alt="Asinhas preparadas" src="assets/gallery/prime-07.jpg"/></div>
+<div class="gallery-preview-slide" data-kind="image"><img alt="Linguiças artesanais" src="assets/gallery/prime-10.jpg"/></div>
+<div class="gallery-preview-slide" data-kind="image"><img alt="Cortes servidos na tábua" src="assets/gallery/prime-11.jpg"/></div>
+</div>
+<div class="menu-gallery-copy">
+<small>Fotos reais + vídeo</small>
+<strong>Galeria Prime</strong>
+<span>Abrir galeria <span class="arrow-chip"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></span></span>
+</div>
+</button>
+</div>
+</div>
+<div aria-hidden="true" class="gallery-backdrop" id="galleryModal">
+<div aria-label="Galeria Prime" aria-modal="true" class="gallery-modal" role="dialog">
+<button aria-label="Fechar galeria" class="gallery-close" id="closeGallery" type="button"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+<div class="gallery-head"><small>Galeria Prime</small><h3>Fotos reais e vídeo</h3><p>Registros dos cortes, entradas, brasa e bastidores do Churrasco Prime.</p></div>
+<div class="gallery-stage-wrap">
+<button aria-label="Anterior" class="gallery-nav" id="prevGallery" type="button"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m15 18-6-6 6-6"></path></svg></button>
+<div class="gallery-stage" id="galleryStage">
+<div class="gallery-slide active" data-kind="image" data-title="Cortes na brasa"><img alt="Cortes na brasa" src="assets/gallery/prime-01.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Churrasqueira e espetos"><img alt="Churrasqueira e espetos" src="assets/gallery/prime-02.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Entradas na tábua"><img alt="Entradas na tábua" src="assets/gallery/prime-03.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Pão de alho artesanal"><img alt="Pão de alho artesanal" src="assets/gallery/prime-04.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Entradas e frango"><img alt="Entradas e frango" src="assets/gallery/prime-05.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Picanha fatiada"><img alt="Picanha fatiada" src="assets/gallery/prime-06.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Asinhas temperadas"><img alt="Asinhas temperadas" src="assets/gallery/prime-07.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Cortes na churrasqueira"><img alt="Cortes na churrasqueira" src="assets/gallery/prime-08.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Queijo no espeto"><img alt="Queijo no espeto" src="assets/gallery/prime-09.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Linguiças artesanais"><img alt="Linguiças artesanais" src="assets/gallery/prime-10.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Cortes servidos"><img alt="Cortes servidos" src="assets/gallery/prime-11.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Especialidade com bacon"><img alt="Especialidade com bacon" src="assets/gallery/prime-12.jpg"/></div>
+<div class="gallery-slide" data-kind="image" data-title="Espetinhos em preparo"><img alt="Espetinhos em preparo" src="assets/gallery/prime-13.jpg"/></div>
+<div class="gallery-slide" data-kind="video" data-title="Vídeo do Churrasco Prime"><video controls="" muted="" playsinline="" preload="metadata"><source src="assets/videos/galeria-prime.mp4" type="video/mp4"/></video></div>
+</div>
+<button aria-label="Próxima" class="gallery-nav" id="nextGallery" type="button"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg></button>
+</div>
+<div class="gallery-caption"><strong id="galleryTitle">Cortes na brasa</strong><span id="galleryCount">Foto 1 de 14</span></div>
+<div class="gallery-thumbs">
+<button aria-label="Cortes na brasa" class="gallery-thumb active" data-index="0" type="button"><img alt="" src="assets/gallery/prime-01.jpg"/></button>
+<button aria-label="Churrasqueira e espetos" class="gallery-thumb" data-index="1" type="button"><img alt="" src="assets/gallery/prime-02.jpg"/></button>
+<button aria-label="Entradas na tábua" class="gallery-thumb" data-index="2" type="button"><img alt="" src="assets/gallery/prime-03.jpg"/></button>
+<button aria-label="Pão de alho artesanal" class="gallery-thumb" data-index="3" type="button"><img alt="" src="assets/gallery/prime-04.jpg"/></button>
+<button aria-label="Entradas e frango" class="gallery-thumb" data-index="4" type="button"><img alt="" src="assets/gallery/prime-05.jpg"/></button>
+<button aria-label="Picanha fatiada" class="gallery-thumb" data-index="5" type="button"><img alt="" src="assets/gallery/prime-06.jpg"/></button>
+<button aria-label="Asinhas temperadas" class="gallery-thumb" data-index="6" type="button"><img alt="" src="assets/gallery/prime-07.jpg"/></button>
+<button aria-label="Cortes na churrasqueira" class="gallery-thumb" data-index="7" type="button"><img alt="" src="assets/gallery/prime-08.jpg"/></button>
+<button aria-label="Queijo no espeto" class="gallery-thumb" data-index="8" type="button"><img alt="" src="assets/gallery/prime-09.jpg"/></button>
+<button aria-label="Linguiças artesanais" class="gallery-thumb" data-index="9" type="button"><img alt="" src="assets/gallery/prime-10.jpg"/></button>
+<button aria-label="Cortes servidos" class="gallery-thumb" data-index="10" type="button"><img alt="" src="assets/gallery/prime-11.jpg"/></button>
+<button aria-label="Especialidade com bacon" class="gallery-thumb" data-index="11" type="button"><img alt="" src="assets/gallery/prime-12.jpg"/></button>
+<button aria-label="Espetinhos em preparo" class="gallery-thumb" data-index="12" type="button"><img alt="" src="assets/gallery/prime-13.jpg"/></button>
+<button aria-label="Abrir vídeo" class="gallery-thumb video-thumb" data-index="13" type="button">▶</button>
+</div>
+</div>
+</div>
 <script>
     (() => {
       const body = document.body;
@@ -846,15 +855,6 @@
       document.querySelectorAll('.closeOnClick').forEach(el => el.addEventListener('click', closeMenu));
       menuModal.addEventListener('click', e => { if (e.target === menuModal) closeMenu(); });
       document.getElementById('heroGalleryBtn').addEventListener('click', openGallery);
-      document.getElementById('galleryCard').addEventListener('click', openGallery);
-
-      // Cards de orçamento: garante clique em 100% da área, inclusive Safari/iPhone e webviews.
-      document.querySelectorAll('.whatsapp-card').forEach(card => {
-        card.addEventListener('click', e => {
-          e.preventDefault();
-          window.location.assign(card.href);
-        });
-      });
       document.getElementById('menuGalleryCard').addEventListener('click', () => { closeMenu(); openGallery(); });
       document.getElementById('closeGallery').addEventListener('click', closeGallery);
       galleryModal.addEventListener('click', e => { if (e.target === galleryModal) closeGallery(); });
@@ -931,12 +931,10 @@
       });
     })();
   </script>
-
-  <!-- Vercel Web Analytics - HTML estático -->
-  <script>
+<!-- Vercel Web Analytics - HTML estático -->
+<script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-
+<script defer="" src="/_vercel/insights/script.js"></script>
 </body>
 </html>
