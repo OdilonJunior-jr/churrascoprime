@@ -6,8 +6,6 @@
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <meta content="#ffffff" name="theme-color"/>
 <title>Churrasco Prime | Bio Premium</title>
-<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"/>
 <meta content="Bio premium do Churrasco Prime com hero principal, experiências clicáveis, orçamento via WhatsApp e modo claro/escuro." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -73,9 +71,8 @@
 
 
     /* WhatsApp oficial + transição suave entre tema claro e escuro */
-    .wa-brand-icon{width:17px;height:17px;display:block;flex:0 0 17px;color:currentColor}
+    .wa-brand-icon{width:18px;height:18px;display:block;flex:0 0 18px;padding:0;margin:0;object-fit:contain;object-position:center;background:transparent;filter:none}
     .quote-btn .wa-brand-icon{width:19px;height:19px;flex-basis:19px}
-    .wa-brand-icon-img{object-fit:contain}
     body,.icon-btn,.menu-modal,.gallery-modal,.quote-notch,footer{transition:background-color .28s ease,color .28s ease,border-color .28s ease,box-shadow .28s ease}
     [data-theme="dark"] body{
       background:
@@ -105,7 +102,7 @@
     img,video{display:block;width:100%;height:100%;object-fit:cover}
 
     .shell{
-      width:min(1560px, calc(100% - 56px));
+      width:min(1480px, calc(100% - 56px));
       margin:0 auto;
       padding-bottom:30px;
     }
@@ -238,18 +235,19 @@
     }
     .hero-title span{display:block;background:linear-gradient(180deg,#ffad32 0%,#ff6700 46%,#e5230d 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
     .hero-sub{max-width:560px;margin:16px auto 0;font-size:15px;line-height:1.5;color:#efefef}
-    .hero-actions{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;justify-content:center}
+    .hero-actions{display:flex;align-items:center;gap:10px;margin-top:22px;flex-wrap:wrap;justify-content:center}
     .mini-action{
       display:inline-flex;align-items:center;justify-content:center;gap:8px;
       text-align:center;line-height:1;
-      min-height:42px;padding:0 15px;border-radius:13px;border:1px solid rgba(255,255,255,.12);
+      min-height:44px;padding:0 16px;border-radius:13px;border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.08);color:#fff;font-size:12px;font-weight:800;
-      backdrop-filter:blur(10px);transition:.22s ease;cursor:pointer;
+      white-space:nowrap;backdrop-filter:blur(10px);transition:.22s ease;cursor:pointer;
     }
     .mini-action:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
     .mini-action.hot{background:linear-gradient(180deg,#f85614,#b61808);border-color:rgba(255,151,32,.38)}
     .mini-action svg{width:16px;height:16px;display:block;flex:0 0 16px;margin:0;pointer-events:none}
-    .mini-action img{display:block;flex:0 0 auto;margin:0;pointer-events:none}
+    .mini-action .wa-brand-icon{width:18px;height:18px;flex:0 0 18px}
+    .mini-action img{display:block;flex:0 0 auto;margin:0;object-fit:contain;pointer-events:none}
 
     .middle-stack{display:grid;gap:16px;grid-template-rows:repeat(4,1fr);position:relative;z-index:5}
 
@@ -375,6 +373,7 @@
     .quote-video{position:absolute;inset:0;z-index:-2;object-fit:cover;object-position:center center;filter:saturate(1.04) contrast(1.04);will-change:opacity;opacity:0}
     .quote-video.video-a{animation:quoteVideoA 12s linear infinite}
     .quote-video.video-b{animation:quoteVideoB 12s linear infinite}
+    body.lock .quote-video{animation-play-state:paused}
     @keyframes quoteVideoA{0%,42%{opacity:1}50%,92%{opacity:0}100%{opacity:1}}
     @keyframes quoteVideoB{0%,42%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
     .quote-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.18) 34%,rgba(7,7,7,.88) 70%,#090909 100%)}
@@ -395,14 +394,14 @@
     .quote-copy p{font-size:12px;line-height:1.45;color:#d8d8d8;margin:16px auto 18px;max-width:330px}
     .quote-features{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px}
     .quote-features div{min-height:54px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;text-align:center;padding:7px;font-size:8px;font-weight:800;line-height:1.2;text-transform:uppercase;color:#f2f2f2}
-    .quote-btn{min-height:56px;border-radius:14px;border:1px solid rgba(255,164,38,.36);background:linear-gradient(180deg,#f85512,#b61707);color:#fff;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;text-align:center;line-height:1;padding:0 16px;box-shadow:0 14px 28px rgba(0,0,0,.38);transition:.22s ease}
+    .quote-btn{min-height:56px;border-radius:14px;border:1px solid rgba(255,164,38,.36);background:linear-gradient(180deg,#f85512,#b61707);color:#fff;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;line-height:1;padding:0 18px;box-shadow:0 14px 28px rgba(0,0,0,.38);transition:.22s ease}
     .quote-btn:hover{transform:translateY(-2px);filter:saturate(1.08) brightness(1.03)}
     .quote-btn svg{width:18px;height:18px;flex:0 0 18px;display:block;margin:0;pointer-events:none}
-    .quote-btn img{display:block;margin:0;pointer-events:none}
+    .quote-btn img{display:block;margin:0;object-fit:contain;pointer-events:none}
     .quote-card small{display:block;text-align:center;margin-top:12px;font-size:9px;color:#aeaeae}
 
     footer{display:flex;justify-content:center;align-items:center;padding:28px 0 0;font-size:11px;color:#6f6f6f}
-    .icon-btn:focus-visible,.menu-close:focus-visible,.gallery-close:focus-visible,.gallery-nav:focus-visible,.gallery-thumb:focus-visible,.mini-action:focus-visible,.quote-btn:focus-visible,.menu-gallery-card:focus-visible,.menu-link:focus-visible{outline:2px solid rgba(255,113,0,.78);outline-offset:3px}
+    .icon-btn:focus-visible,.menu-close:focus-visible,.gallery-close:focus-visible,.gallery-nav:focus-visible,.gallery-thumb:focus-visible,.mini-action:focus-visible,.quote-btn:focus-visible,.menu-gallery-card:focus-visible,.menu-link:focus-visible,.promo-close:focus-visible,.promo-cta:focus-visible,.promo-reopen:focus-visible{outline:2px solid rgba(255,113,0,.86);outline-offset:3px}
 
     .modal-backdrop{
       position:fixed;inset:0;z-index:50;display:none;place-items:center;padding:22px;
@@ -440,6 +439,7 @@
     .menu-link strong{font-family:"Oswald",sans-serif;font-size:20px;text-transform:uppercase}
     .menu-link small{font-size:9px;color:#d16300;display:flex;align-items:center;justify-content:center;gap:7px;text-transform:uppercase;font-weight:800;white-space:nowrap}
     .menu-link svg{width:18px;height:18px;color:#d16300;display:block;margin:auto;pointer-events:none}
+    .menu-link>svg{justify-self:center}
     .menu-link small svg{width:15px;height:15px;margin:0}
 
     .brand-intro{
@@ -484,6 +484,68 @@
       animation:projectReveal .78s cubic-bezier(.2,.72,.24,1) 1.86s forwards;
     }
 
+    /* ===== PROMOCAO DE ENTRADA ===== */
+    .promo-backdrop{position:fixed;inset:0;z-index:110;display:grid;place-items:center;padding:24px;background:rgba(8,6,4,.78);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease,visibility .28s ease}
+    .promo-backdrop.open{opacity:1;visibility:visible;pointer-events:auto}
+    .promo-dialog{position:relative;isolation:isolate;width:min(920px,100%);max-height:calc(100dvh - 48px);overflow:auto;scrollbar-gutter:stable;border:1px solid rgba(255,151,42,.42);border-radius:24px;padding:14px;color:#fff;background:linear-gradient(145deg,#1a0d07,#0a0908 62%,#170a05);box-shadow:0 26px 70px rgba(0,0,0,.52);transform:translateY(22px) scale(.96);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .28s ease}
+    .promo-dialog::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:radial-gradient(circle at 9% 12%,rgba(255,174,59,.20) 0 2px,transparent 3px),radial-gradient(circle at 91% 24%,rgba(255,83,12,.22) 0 2px,transparent 3px),linear-gradient(115deg,transparent 30%,rgba(255,118,15,.06) 49%,transparent 65%);pointer-events:none}
+    .promo-backdrop.open .promo-dialog{transform:none;filter:none;opacity:1}
+    .promo-close{position:absolute;right:24px;top:24px;z-index:4;width:36px;height:36px;padding:0;display:grid;place-items:center;border-radius:50%;cursor:pointer;color:#fff5e4;border:1px solid rgba(255,167,54,.62);background:#140c08;box-shadow:0 7px 18px rgba(0,0,0,.28);transition:transform .2s ease,background-color .2s ease,border-color .2s ease}
+    .promo-close:hover{background:#261108;border-color:#ff9b35;transform:rotate(90deg)}
+    .promo-close:focus-visible{outline:0;background:#2c1308;border-color:#ffd18a}
+    .promo-close svg{width:16px;height:16px;stroke-width:2.6}
+    .promo-head{position:relative;isolation:isolate;overflow:hidden;z-index:1;min-height:156px;margin-bottom:12px;padding:20px 94px;border:1px solid rgba(255,159,47,.30);border-radius:18px;text-align:center;display:flex;flex-direction:column;justify-content:center;box-shadow:inset 0 1px rgba(255,233,190,.08)}
+    .promo-head::before{content:"";position:absolute;inset:0;z-index:-2;background:url("assets/gallery/prime-06.jpg") center 53%/cover no-repeat}
+    .promo-head::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(12,7,4,.88),rgba(20,8,3,.48) 48%,rgba(12,7,4,.88)),linear-gradient(180deg,rgba(5,4,3,.25),rgba(10,5,2,.78))}
+    .promo-backdrop.open .promo-head{animation:promoHeadIn .6s cubic-bezier(.16,1,.3,1) .12s both}
+    .promo-stamp{position:absolute;left:15px;top:15px;width:74px;height:74px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid #ffc251;background:radial-gradient(circle,#b7210c 0 46%,#7e0e06 47% 62%,#d43b0d 63% 68%,#7e0e06 69%);box-shadow:0 8px 20px rgba(0,0,0,.34);transform:rotate(-8deg);text-transform:uppercase;line-height:.9}
+    .promo-stamp::before,.promo-stamp::after{content:"★";position:absolute;color:#ffd36d;font-size:9px;top:13px}
+    .promo-stamp::before{left:17px}.promo-stamp::after{right:17px}
+    .promo-stamp strong{font-family:"Oswald",sans-serif;font-size:14px;letter-spacing:.02em}
+    .promo-stamp small{margin-top:4px;color:#ffd47c;font-size:7px;font-weight:800;letter-spacing:.11em}
+    .promo-backdrop.open .promo-stamp{animation:stampIn .55s cubic-bezier(.16,1,.3,1) .2s both}
+    .promo-kicker{display:inline-flex;align-items:center;gap:8px;margin:0 0 10px;color:#ff9b3d;font-size:10px;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+    .promo-kicker::before,.promo-kicker::after{content:"";width:24px;height:1px;background:#f36a16}
+    .promo-head h2{margin:0;font-family:"Oswald",sans-serif;font-size:clamp(32px,4.2vw,48px);line-height:.94;text-transform:uppercase;letter-spacing:-.025em}
+    .promo-head h2 span{display:block;color:#ff7a1a}
+    .promo-head>p{max-width:610px;margin:9px auto 0;color:#f1e8df;font-size:12px;line-height:1.45;text-shadow:0 2px 8px rgba(0,0,0,.72)}
+    .promo-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:stretch}
+    .promo-package{--promo-enter-x:-20px;position:relative;overflow:hidden;padding:16px;border-radius:18px;border:1px solid rgba(255,151,38,.32);background:linear-gradient(155deg,rgba(71,27,9,.82),rgba(15,12,10,.95) 60%,rgba(8,8,7,.98));box-shadow:inset 0 1px rgba(255,224,170,.08);opacity:1;transform:none;display:flex;flex-direction:column}
+    .promo-backdrop.open .promo-package{animation:promoCardIn .4s cubic-bezier(.2,.8,.2,1) .1s forwards}
+    .promo-backdrop.open .promo-package:nth-child(2){--promo-enter-x:20px;animation-delay:.16s}
+    .promo-package::before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:3px;background:linear-gradient(90deg,#e5230d,#ff9e24,transparent)}
+    .promo-package.featured{border-color:rgba(255,174,61,.52);background:linear-gradient(155deg,rgba(91,32,8,.88),rgba(16,12,9,.96) 60%,rgba(8,8,7,.98));box-shadow:inset 0 1px rgba(255,224,170,.10)}
+    .promo-tag{display:inline-block;margin-bottom:8px;padding:5px 8px;border-radius:999px;background:rgba(255,116,20,.12);color:#ff9d43;font-size:7px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .promo-package h3{margin:0;font-family:"Oswald",sans-serif;font-size:25px;text-transform:uppercase}
+    .promo-package h3 span{color:#ff7b1b}
+    .promo-list{list-style:none;margin:12px 0 13px;padding:0;display:grid;align-content:start;gap:6px;color:#e7e1da;font-size:11px;flex:1}
+    .promo-list li{display:flex;align-items:center;gap:8px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.07)}
+    .promo-list li::before{content:"";width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#ff7a18;box-shadow:0 0 12px rgba(255,104,15,.55)}
+    .promo-price{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:auto}
+    .promo-price small{padding-bottom:5px;color:#a9a29b;font-size:8px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .promo-price strong{font-family:"Oswald",sans-serif;color:#ff9a35;font-size:28px;line-height:1}
+    .promo-cta{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:12px;padding:0 14px;border-radius:12px;background:linear-gradient(135deg,#ff7b1b,#e62b10);color:#fff;font-size:10px;font-weight:800;text-align:center;text-transform:uppercase;letter-spacing:.04em;box-shadow:none;transition:.2s ease}
+    .promo-cta:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(221,47,13,.35)}
+    .promo-cta .wa-brand-icon{width:18px;height:18px;flex:0 0 18px}
+    .promo-benefits{position:relative;z-index:1;display:flex;justify-content:center;flex-wrap:wrap;gap:7px 15px;margin:12px 0 0;color:#eee3d7;font-size:9px}
+    .promo-benefits span{display:flex;align-items:center;gap:6px}
+    .promo-benefits span::before{content:"✓";color:#ff8b2b;font-weight:800}
+    .promo-offer{position:relative;z-index:1;margin:12px 0 0;padding:10px 16px;border:1px solid rgba(255,192,74,.25);border-radius:12px;text-align:center;background:linear-gradient(90deg,rgba(157,20,8,.88),rgba(232,66,8,.94),rgba(157,20,8,.88));box-shadow:none;font-family:"Oswald",sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:.025em}
+    .promo-offer strong{color:#fff1d5}
+    .promo-reopen{position:fixed;right:18px;bottom:18px;z-index:45;display:flex;align-items:center;justify-content:center;min-height:46px;padding:0 19px;border:0;border-radius:999px;background:transparent;color:#fff;cursor:pointer;box-shadow:0 16px 34px rgba(0,0,0,.28);font-size:10px;font-weight:800;text-align:center;text-transform:uppercase;letter-spacing:.08em;transform:translateY(90px);opacity:0;transition:.3s ease;isolation:isolate;overflow:hidden}
+    .promo-reopen::before{content:"";position:absolute;z-index:-2;left:-32%;top:50%;width:164%;aspect-ratio:1;background:conic-gradient(from 0deg,transparent 0 76%,rgba(255,193,67,.22) 81%,#ffe09a 87%,#c98918 92%,transparent 98%);transform:translateY(-50%) rotate(0deg);transform-origin:center;will-change:transform;animation:none}
+    .promo-reopen::after{content:"";position:absolute;z-index:-1;inset:1px;border-radius:inherit;background:linear-gradient(135deg,#1b120d,#080706);box-shadow:inset 0 0 0 1px rgba(255,205,105,.13);pointer-events:none}
+    .promo-reopen span{position:relative;z-index:1}
+    .promo-reopen.visible{transform:none;opacity:1}
+    .promo-reopen.visible::before{animation:promoGoldClockwise 2.4s linear infinite}
+    .promo-reopen:hover{transform:translateY(-2px)}
+
+    @keyframes promoCardIn{0%{opacity:0;transform:translateX(var(--promo-enter-x)) translateY(10px)}100%{opacity:1;transform:none}}
+    @keyframes promoHeadIn{from{opacity:0;transform:translateY(-14px) scale(.96)}to{opacity:1;transform:none}}
+    @keyframes stampIn{from{opacity:0;transform:rotate(-22deg) scale(.45)}to{opacity:1;transform:rotate(-8deg) scale(1)}}
+    @keyframes stampPulse{0%,100%{filter:brightness(1);box-shadow:0 0 0 4px rgba(255,105,12,.16),0 10px 30px rgba(0,0,0,.38),0 0 22px rgba(255,92,8,.25)}50%{filter:brightness(1.12);box-shadow:0 0 0 5px rgba(255,157,37,.18),0 12px 34px rgba(0,0,0,.40),0 0 36px rgba(255,100,9,.48)}}
+    @keyframes promoGoldClockwise{to{transform:translateY(-50%) rotate(360deg)}}
+
     @keyframes introLogo{
       0%{opacity:0;transform:scale(.72)}
       16%{opacity:1;transform:scale(.94)}
@@ -508,13 +570,14 @@
     }
 
     @media (max-width:1180px){
-      .desktop-grid{grid-template-columns:1.18fr .94fr}
-      .quote-card{grid-column:1 / -1;min-height:620px}
+      .desktop-grid{grid-template-columns:minmax(0,1.18fr) minmax(340px,.94fr);gap:18px}
+      .quote-card{grid-column:1 / -1;min-height:580px}
+      .quote-copy{width:min(620px,100%);margin:0 auto}
     }
 
     @media (max-width:760px){
       :root{--header:68px;--radius:22px;--radius-sm:18px}
-      .shell{width:min(100% - 22px,520px);padding-bottom:18px}
+      .shell{width:min(calc(100% - 22px),520px);padding-bottom:calc(18px + env(safe-area-inset-bottom))}
       .topbar{
         height:var(--header);
         position:relative;
@@ -553,7 +616,7 @@
       .top-logo-copy strong{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
       .top-logo-copy small{font-size:5px;letter-spacing:.16em;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
       .desktop-grid{display:flex;flex-direction:column;gap:13px}
-      .hero-card{min-height:570px}
+      .hero-card{min-height:570px;border-radius:24px}
       .hero-media img{object-position:center top}
       .hero-center-logo{top:12%;width:110px;height:110px;background:transparent;}
       .hero-badge{left:14px;top:14px;font-size:9px;padding:8px 10px}
@@ -561,25 +624,25 @@
       .hero-eyebrow{font-size:9px;margin-bottom:7px}
       .hero-title{font-size:clamp(43px,12.3vw,58px);line-height:.9}
       .hero-sub{font-size:12px;line-height:1.4;margin-top:12px;max-width:390px}
-      .hero-actions{margin-top:16px;justify-content:center}
-      .mini-action{min-height:38px;padding:0 12px;font-size:10px}
+      .hero-actions{width:100%;margin-top:16px;justify-content:center;gap:8px}
+      .mini-action{min-height:42px;padding:0 13px;font-size:10px}
       .middle-stack{gap:13px;grid-template-rows:none}
-      .project-card{min-height:178px}
-      .project-content{width:68%;padding:17px 15px}
+      .project-card{min-height:184px;border-radius:19px}
+      .project-content{width:72%;padding:18px 16px}
       .project-kicker{font-size:8px}
       .project-content h3{font-size:21px;margin-bottom:8px}
-      .project-content p{font-size:10px;margin-bottom:11px}
+      .project-content p{font-size:10.5px;line-height:1.35;margin-bottom:11px}
       .linkline{font-size:9px}
-      .quote-card{min-height:650px;padding:0 14px 14px}
+      .quote-card{min-height:640px;padding:0 14px 16px;border-radius:24px}
       .quote-notch{width:165px;height:38px;font-size:10px}
       .quote-copy h2{font-size:42px}
-      .quote-copy p{font-size:10px}
-      .quote-features div{font-size:7px;min-height:48px}
-      .quote-btn{min-height:52px;font-size:13px}
+      .quote-copy p{font-size:11px;line-height:1.5}
+      .quote-features div{font-size:8px;min-height:48px}
+      .quote-btn{min-height:52px;font-size:12px}
       footer{padding-top:20px;font-size:8px}
       .menu-modal{min-height:auto;padding:30px 22px 22px;border-radius:28px;grid-template-columns:1fr;gap:16px;max-height:90vh;overflow:auto}
       .menu-label{margin-bottom:8px}
-      .menu-link{padding:13px 0}
+      .menu-link{padding:14px 0;grid-template-columns:28px minmax(0,1fr) auto}
       .menu-link strong{font-size:17px}
       .menu-close,.gallery-close{width:38px;height:38px;border-radius:12px}
       .menu-close svg,.gallery-close svg{width:17px;height:17px}
@@ -590,7 +653,7 @@
       .gallery-head h3{font-size:27px}
       .gallery-head p{font-size:11px}
       .gallery-stage-wrap{grid-template-columns:1fr;gap:8px;position:relative}
-      .gallery-stage{min-height:390px;border-radius:19px}
+      .gallery-stage{min-height:clamp(300px,56vh,430px);border-radius:19px}
       .gallery-nav{position:absolute;z-index:4;top:50%;transform:translateY(-50%);width:40px;height:40px;background:rgba(255,255,255,.82)}
       #prevGallery{left:8px}
       #nextGallery{right:8px}
@@ -598,6 +661,28 @@
       .gallery-thumb{height:60px;border-radius:10px}
       .gallery-caption{padding:11px 2px}
       .gallery-caption strong{font-size:13px}
+      .promo-backdrop{padding:0;align-items:stretch}
+      .promo-dialog{width:100%;height:100dvh;max-height:100dvh;border:0;border-radius:0;padding:8px 8px calc(14px + env(safe-area-inset-bottom));scrollbar-gutter:auto}
+      .promo-close{position:fixed;right:10px;top:10px;width:36px;height:36px;border-radius:11px;background:#140c08;border-color:rgba(255,167,54,.58)}
+      .promo-head{min-height:180px;margin-bottom:8px;padding:38px 34px 16px;border-radius:15px}
+      .promo-stamp{left:10px;top:10px;width:58px;height:58px;margin:0;transform:rotate(-8deg)}
+      .promo-stamp strong{font-size:11px}
+      .promo-stamp small{font-size:6px;margin-top:3px}
+      .promo-stamp::before,.promo-stamp::after{top:7px;font-size:6px}
+      .promo-stamp::before{left:11px}.promo-stamp::after{right:11px}
+      .promo-head h2{font-size:clamp(28px,8.9vw,35px)}
+      .promo-head>p{font-size:10px}
+      .promo-grid{grid-template-columns:1fr;gap:8px}
+      .promo-package{padding:14px;border-radius:16px}
+      .promo-package h3{font-size:22px}
+      .promo-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 10px;margin:10px 0 11px;font-size:9.5px}
+      .promo-list li{padding-bottom:5px}
+      .promo-price strong{font-size:25px}
+      .promo-cta{min-height:42px;margin-top:10px;font-size:9px}
+      .promo-cta .wa-brand-icon{width:17px;height:17px;flex-basis:17px}
+      .promo-benefits{font-size:7.5px;gap:6px 10px;margin-top:10px}
+      .promo-offer{margin-top:10px;padding:9px;font-size:12px}
+      .promo-reopen{right:11px;bottom:11px;min-height:42px;padding:0 13px;font-size:9px}
     }
 
     @media (max-width:390px){
@@ -608,20 +693,28 @@
       .top-logo img{width:23px;height:28px}
       .top-logo-copy strong{font-size:9.5px}
       .top-logo-copy small{font-size:4.4px;letter-spacing:.12em}
-      .hero-card{min-height:535px}
+      .hero-card{min-height:555px}
       .hero-center-logo{top:10%;width:90px;height:90px;background:transparent;}
       .hero-title{font-size:42px}
-      .project-card{min-height:164px}
-      .project-content{width:70%}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .mini-action{width:100%;min-height:44px}
+      .project-card{min-height:180px}
+      .project-content{width:76%}
       .project-content h3{font-size:19px}
-      .project-content p{font-size:9px}
+      .project-content p{font-size:9.5px}
       .quote-card{min-height:610px}
-      .quote-copy h2{font-size:38px}
+      .quote-copy h2{font-size:36px}
+      .promo-head{padding:38px 30px 15px}
+      .promo-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 9px;margin-bottom:12px;font-size:9px}
+      .promo-benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));text-align:left}
+      .promo-benefits span{align-items:flex-start}
+      .promo-offer{font-size:13px}
     }
 
     @media (prefers-reduced-motion:reduce){
       *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
       .brand-intro{display:none!important}
+      .promo-package{opacity:1!important;transform:none!important}
       body.intro-active .shell{opacity:1!important;transform:none!important;filter:none!important}
     }
   </style>
@@ -630,6 +723,40 @@
 <div aria-hidden="true" class="brand-intro" id="brandIntro">
 <img alt="Logo Churrasco Prime" src="assets/logo-churrasco-prime-anexada-transparente.png"/>
 </div>
+<div aria-hidden="true" class="promo-backdrop" id="promoModal">
+<section aria-labelledby="promoTitle" aria-modal="true" class="promo-dialog" role="dialog">
+<button aria-label="Fechar promoção" class="promo-close" id="closePromo" type="button"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+<header class="promo-head">
+<span aria-hidden="true" class="promo-stamp"><strong>Promoção</strong><small>Especial</small></span>
+<p class="promo-kicker">Pacotes promocionais</p>
+<h2 id="promoTitle">Churrasco completo <span>para até 25 pessoas</span></h2>
+<p>Escolha seu pacote e deixe a equipe Prime cuidar da brasa, do serviço e de cada detalhe do seu evento.</p>
+</header>
+<div class="promo-grid">
+<article class="promo-package featured">
+<span class="promo-tag">Experiência completa</span>
+<h3>Pacote <span>Prime</span></h3>
+<ul class="promo-list">
+<li>Chouripan Prime</li><li>3 kg de picanha</li><li>3 kg de fraldinha</li><li>2 kg de tulipas</li><li>2 kg de linguiça na brasa</li><li>2 kg de mandioca na manteiga</li>
+</ul>
+<div class="promo-price"><small>Valor do pacote</small><strong>R$ 2.100</strong></div>
+<a class="promo-cta" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20promo%C3%A7%C3%A3o%20do%20Pacote%20Prime." rel="noreferrer" target="_blank"><img alt="" aria-hidden="true" class="wa-brand-icon" src="assets/whatsapp.png"/>Quero o Pacote Prime</a>
+</article>
+<article class="promo-package">
+<span class="promo-tag">Ótimo custo-benefício</span>
+<h3>Pacote <span>Tradicional</span></h3>
+<ul class="promo-list">
+<li>3 kg de fraldão</li><li>3 kg de alcatra</li><li>2 kg de tulipas</li><li>2 kg de linguiça na brasa</li><li>2 kg de mandioca</li>
+</ul>
+<div class="promo-price"><small>Valor do pacote</small><strong>R$ 1.900</strong></div>
+<a class="promo-cta" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20promo%C3%A7%C3%A3o%20do%20Pacote%20Tradicional." rel="noreferrer" target="_blank"><img alt="" aria-hidden="true" class="wa-brand-icon" src="assets/whatsapp.png"/>Quero o Tradicional</a>
+</article>
+</div>
+<div class="promo-benefits"><span>Churrasqueiro + auxiliar</span><span>Carvão e descartáveis</span><span>Todos os insumos</span><span>Brinde Réchaud</span></div>
+<p class="promo-offer"><strong>Fechamento em até 24h:</strong> 5% de desconto</p>
+</section>
+</div>
+<button aria-label="Abrir promoção" class="promo-reopen" id="openPromo" type="button"><span>Ver promoção</span></button>
 <main class="shell">
 <header class="topbar">
 <button aria-label="Abrir menu" class="icon-btn" id="menuBtn" type="button">
@@ -659,8 +786,8 @@
 <h1 class="hero-title">A experiência é <span>Prime.</span></h1>
 <p class="hero-sub">Churrasco premium para eventos corporativos, aniversários, resenhas e BBQ — feito para transformar o momento ao redor da churrasqueira.</p>
 <div class="hero-actions">
-<a class="mini-action hot" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20meu%20evento.%20Posso%20passar%20a%20data%2C%20o%20tipo%20de%20evento%20e%20o%20n%C3%BAmero%20de%20convidados." rel="noreferrer" target="_blank">
-<img alt="" aria-hidden="true" class="wa-brand-icon wa-brand-icon-img" src="assets/whatsapp-original-icon.png"/>
+<a class="mini-action hot" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20meu%20evento." rel="noreferrer" target="_blank">
+<img alt="" aria-hidden="true" class="wa-brand-icon" src="assets/whatsapp.png"/>
               Solicitar orçamento
             </a>
 <button class="mini-action" id="heroGalleryBtn" type="button">
@@ -671,7 +798,7 @@
 </div>
 </article>
 <div aria-label="Experiências Churrasco Prime" class="middle-stack">
-<article aria-label="Abrir conversa no WhatsApp" class="project-card" data-url="https://api.whatsapp.com/send?phone=5534992478039&amp;text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20evento%20corporativo.%20Pode%20me%20explicar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" onclick="window.location.href=this.dataset.url" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href=this.dataset.url}" role="link" tabindex="0">
+<article aria-label="Abrir conversa no WhatsApp" class="project-card" data-url="https://api.whatsapp.com/send?phone=5534992478039&amp;text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20um%20evento%20corporativo." onclick="window.location.href=this.dataset.url" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href=this.dataset.url}" role="link" tabindex="0">
 <img alt="Churrasco Prime preparando espetinhos em um evento" class="bg" src="assets/card-churrasco-prime-evento.png"/>
 <div class="shade"></div>
 <div class="project-content">
@@ -681,7 +808,7 @@
 <span class="linkline">Pedir orçamento <span class="arrow-chip"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></span></span>
 </div>
 </article>
-<article aria-label="Abrir conversa no WhatsApp" class="project-card red" data-url="https://api.whatsapp.com/send?phone=5534992478039&amp;text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20anivers%C3%A1rio.%20Pode%20me%20enviar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" onclick="window.location.href=this.dataset.url" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href=this.dataset.url}" role="link" tabindex="0">
+<article aria-label="Abrir conversa no WhatsApp" class="project-card red" data-url="https://api.whatsapp.com/send?phone=5534992478039&amp;text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20um%20anivers%C3%A1rio." onclick="window.location.href=this.dataset.url" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href=this.dataset.url}" role="link" tabindex="0">
 <img alt="Entradas e comemoração de aniversário com churrasco" class="bg" src="assets/gallery/galeria-10-entradas.jpg"/>
 <div class="shade"></div>
 <div class="project-content">
@@ -691,7 +818,7 @@
 <span class="linkline">Quero conversar <span class="arrow-chip"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></span></span>
 </div>
 </article>
-<article aria-label="Abrir conversa no WhatsApp" class="project-card orange" data-url="https://api.whatsapp.com/send?phone=5534992478039&amp;text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20montar%20uma%20resenha%20%2F%20BBQ.%20Pode%20me%20passar%20as%20op%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento%3F" onclick="window.location.href=this.dataset.url" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href=this.dataset.url}" role="link" tabindex="0">
+<article aria-label="Abrir conversa no WhatsApp" class="project-card orange" data-url="https://api.whatsapp.com/send?phone=5534992478039&amp;text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20uma%20resenha%20ou%20BBQ." onclick="window.location.href=this.dataset.url" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href=this.dataset.url}" role="link" tabindex="0">
 <img alt="Carne sendo preparada na churrasqueira" class="bg" src="assets/gallery/galeria-08-churrasqueira.jpg"/>
 <div class="shade"></div>
 <div class="project-content">
@@ -735,8 +862,8 @@
 <div>Aniversário</div>
 <div>Resenha &amp; BBQ</div>
 </div>
-<a class="quote-btn" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20meu%20evento.%20Posso%20passar%20a%20data%2C%20o%20tipo%20de%20evento%20e%20o%20n%C3%BAmero%20de%20convidados." rel="noreferrer" target="_blank">
-<img alt="" aria-hidden="true" class="wa-brand-icon wa-brand-icon-img" src="assets/whatsapp-original-icon.png"/>
+<a class="quote-btn" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20meu%20evento." rel="noreferrer" target="_blank">
+<img alt="" aria-hidden="true" class="wa-brand-icon" src="assets/whatsapp.png"/>
             Solicitar orçamento
             <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
 </a>
@@ -752,9 +879,9 @@
 <div>
 <div class="menu-label">MENU PRIME</div>
 <a class="menu-link closeOnClick" href="#inicio"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 11 12 4l9 7"></path><path d="M5 10v10h14V10"></path></svg><strong>Início</strong><small>Ver <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></small></a>
-<a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20evento%20corporativo.%20Pode%20me%20explicar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" rel="noreferrer" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg><strong>Eventos Corporativos</strong><small>Orçamento <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></small></a>
-<a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20anivers%C3%A1rio.%20Pode%20me%20enviar%20as%20op%C3%A7%C3%B5es%20e%20como%20funciona%3F" rel="noreferrer" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8 2h8"></path><path d="M12 2v5"></path><rect height="12" rx="2" width="16" x="4" y="8"></rect><path d="M4 13h16"></path></svg><strong>Aniversários</strong><small>Orçamento <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></small></a>
-<a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Vi%20o%20Churrasco%20Prime%20e%20quero%20montar%20uma%20resenha%20%2F%20BBQ.%20Pode%20me%20passar%20as%20op%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento%3F" rel="noreferrer" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-.7-1.2-.8-2.5.5-4 0 2 1.5 3 2.5 4 1.4 1.4 2 2.7 2 4.5a4.5 4.5 0 0 1-9 0c0-1 .3-2 .8-2.8.2 1.2.8 2.2 1.7 3.8Z"></path></svg><strong>Resenhas &amp; BBQ</strong><small>Orçamento <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></small></a>
+<a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20um%20evento%20corporativo." rel="noreferrer" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg><strong>Eventos Corporativos</strong><small>Orçamento <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></small></a>
+<a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20um%20anivers%C3%A1rio." rel="noreferrer" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8 2h8"></path><path d="M12 2v5"></path><rect height="12" rx="2" width="16" x="4" y="8"></rect><path d="M4 13h16"></path></svg><strong>Aniversários</strong><small>Orçamento <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></small></a>
+<a class="menu-link" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20uma%20resenha%20ou%20BBQ." rel="noreferrer" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-.7-1.2-.8-2.5.5-4 0 2 1.5 3 2.5 4 1.4 1.4 2 2.7 2 4.5a4.5 4.5 0 0 1-9 0c0-1 .3-2 .8-2.8.2 1.2.8 2.2 1.7 3.8Z"></path></svg><strong>Resenhas &amp; BBQ</strong><small>Orçamento <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></small></a>
 </div>
 <button class="menu-gallery-card" id="menuGalleryCard" type="button">
 <div class="gallery-preview-stage gallery-rotator">
@@ -819,15 +946,38 @@
       const body = document.body;
       const menuModal = document.getElementById('menuModal');
       const galleryModal = document.getElementById('galleryModal');
+      const promoModal = document.getElementById('promoModal');
+      const openPromoButton = document.getElementById('openPromo');
+      const closePromoButton = document.getElementById('closePromo');
       const brandIntro = document.getElementById('brandIntro');
+      const ambientVideos = [...document.querySelectorAll('.quote-video')];
 
+      function openPromo(){
+        promoModal.classList.add('open');
+        promoModal.setAttribute('aria-hidden','false');
+        openPromoButton.classList.remove('visible');
+        ambientVideos.forEach(video => video.pause());
+        syncLock();
+        window.setTimeout(() => closePromoButton.focus(), 380);
+      }
+
+      function closePromo(){
+        promoModal.classList.remove('open');
+        promoModal.setAttribute('aria-hidden','true');
+        openPromoButton.classList.add('visible');
+        ambientVideos.forEach(video => video.play().catch(() => {}));
+        syncLock();
+      }
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       window.setTimeout(() => {
         document.body.classList.remove('intro-active');
         if (brandIntro) brandIntro.remove();
-      }, 2700);
+        window.setTimeout(openPromo, reduceMotion ? 0 : 280);
+      }, reduceMotion ? 0 : 2650);
 
       function syncLock(){
-        body.classList.toggle('lock', menuModal.classList.contains('open') || galleryModal.classList.contains('open'));
+        body.classList.toggle('lock', menuModal.classList.contains('open') || galleryModal.classList.contains('open') || promoModal.classList.contains('open'));
       }
       function openMenu(){
         menuModal.classList.add('open');
@@ -860,6 +1010,9 @@
       document.getElementById('menuGalleryCard').addEventListener('click', () => { closeMenu(); openGallery(); });
       document.getElementById('closeGallery').addEventListener('click', closeGallery);
       galleryModal.addEventListener('click', e => { if (e.target === galleryModal) closeGallery(); });
+      closePromoButton.addEventListener('click', closePromo);
+      openPromoButton.addEventListener('click', openPromo);
+      promoModal.addEventListener('click', e => { if (e.target === promoModal) closePromo(); });
 
       const themeToggle = document.getElementById('themeToggle');
       const iconMoon = document.getElementById('iconMoon');
@@ -927,7 +1080,7 @@
       showGallery(0);
 
       document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') { closeMenu(); closeGallery(); }
+        if (e.key === 'Escape') { closeMenu(); closeGallery(); if (promoModal.classList.contains('open')) closePromo(); }
         if (galleryModal.classList.contains('open') && e.key === 'ArrowRight') showGallery(galleryIndex + 1);
         if (galleryModal.classList.contains('open') && e.key === 'ArrowLeft') showGallery(galleryIndex - 1);
       });
