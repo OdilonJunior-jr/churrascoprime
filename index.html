@@ -965,10 +965,8 @@
       const closePromoButton = document.getElementById('closePromo');
       const brandIntro = document.getElementById('brandIntro');
       const ambientVideos = [...document.querySelectorAll('.quote-video')];
-      let autoPromoTimer;
 
       function openPromo(){
-        window.clearTimeout(autoPromoTimer);
         promoModal.classList.add('open');
         promoModal.setAttribute('aria-hidden','false');
         openPromoButton.classList.remove('visible','attention');
@@ -989,14 +987,9 @@
       window.setTimeout(() => {
         document.body.classList.remove('intro-active');
         if (brandIntro) brandIntro.remove();
-        if (reduceMotion) {
-          openPromo();
-          return;
-        }
         window.setTimeout(() => {
           openPromoButton.classList.add('visible','attention');
-          autoPromoTimer = window.setTimeout(openPromo, 980);
-        }, 260);
+        }, reduceMotion ? 0 : 260);
       }, reduceMotion ? 0 : 2650);
 
       function syncLock(){
