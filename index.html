@@ -401,7 +401,7 @@
     .quote-card small{display:block;text-align:center;margin-top:12px;font-size:9px;color:#aeaeae}
 
     footer{display:flex;justify-content:center;align-items:center;padding:28px 0 0;font-size:11px;color:#6f6f6f}
-    .icon-btn:focus-visible,.menu-close:focus-visible,.gallery-close:focus-visible,.gallery-nav:focus-visible,.gallery-thumb:focus-visible,.mini-action:focus-visible,.quote-btn:focus-visible,.menu-gallery-card:focus-visible,.menu-link:focus-visible,.promo-close:focus-visible,.promo-cta:focus-visible,.promo-reopen:focus-visible{outline:2px solid rgba(255,113,0,.86);outline-offset:3px}
+    .icon-btn:focus-visible,.menu-close:focus-visible,.gallery-close:focus-visible,.gallery-nav:focus-visible,.gallery-thumb:focus-visible,.mini-action:focus-visible,.quote-btn:focus-visible,.menu-gallery-card:focus-visible,.menu-link:focus-visible,.promo-close:focus-visible,.promo-reopen:focus-visible{outline:2px solid rgba(255,113,0,.86);outline-offset:3px}
 
     .modal-backdrop{
       position:fixed;inset:0;z-index:50;display:none;place-items:center;padding:22px;
@@ -522,12 +522,10 @@
     .promo-list{list-style:none;margin:12px 0 13px;padding:0;display:grid;align-content:start;gap:6px;color:#e7e1da;font-size:11px;flex:1}
     .promo-list li{display:flex;align-items:center;gap:8px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.07)}
     .promo-list li::before{content:"";width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#ff7a18;box-shadow:0 0 12px rgba(255,104,15,.55)}
-    .promo-price{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:auto}
-    .promo-price small{padding-bottom:5px;color:#a9a29b;font-size:8px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-    .promo-price strong{font-family:"Oswald",sans-serif;color:#ff9a35;font-size:28px;line-height:1}
-    .promo-cta{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:12px;padding:0 14px;border-radius:12px;background:linear-gradient(135deg,#ff7b1b,#e62b10);color:#fff;font-size:10px;font-weight:800;text-align:center;text-transform:uppercase;letter-spacing:.04em;box-shadow:none;transition:.2s ease}
-    .promo-cta:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(221,47,13,.35)}
-    .promo-cta .wa-brand-icon{width:18px;height:18px;flex:0 0 18px}
+    .promo-invite{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;margin-top:auto;padding:11px 18px;border:1px solid rgba(255,181,78,.48);border-radius:12px;background:linear-gradient(135deg,#ff7b1b,#e62b10);box-shadow:0 10px 24px rgba(205,45,10,.18),inset 0 1px rgba(255,233,196,.2);color:#fff;font-size:11px;font-weight:900;letter-spacing:.06em;text-align:center;text-transform:uppercase;transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+    .promo-invite .wa-brand-icon{width:19px;height:19px;flex:0 0 19px}
+    .promo-invite:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 15px 30px rgba(205,45,10,.3),inset 0 1px rgba(255,233,196,.24)}
+    .promo-invite:focus-visible{outline:2px solid #ffb34d;outline-offset:3px}
     .promo-benefits{position:relative;z-index:1;display:flex;justify-content:center;flex-wrap:wrap;gap:7px 15px;margin:12px 0 0;color:#eee3d7;font-size:9px}
     .promo-benefits span{display:flex;align-items:center;gap:6px}
     .promo-benefits span::before{content:"✓";color:#ff8b2b;font-weight:800}
@@ -687,9 +685,7 @@
       .promo-package h3{font-size:22px}
       .promo-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 10px;margin:10px 0 11px;font-size:9.5px}
       .promo-list li{padding-bottom:5px}
-      .promo-price strong{font-size:25px}
-      .promo-cta{min-height:42px;margin-top:10px;font-size:9px}
-      .promo-cta .wa-brand-icon{width:17px;height:17px;flex-basis:17px}
+      .promo-invite{min-height:46px;font-size:10px}
       .promo-benefits{font-size:7.5px;gap:6px 10px;margin-top:10px}
       .promo-offer{margin-top:10px;padding:9px;font-size:12px}
       .promo-offer span{display:block;margin-top:3px;font-size:10px;line-height:1.25}
@@ -753,8 +749,7 @@
 <ul class="promo-list">
 <li>Chouripan Prime</li><li>3 kg de picanha</li><li>3 kg de fraldinha</li><li>2 kg de tulipas</li><li>2 kg de linguiça na brasa</li><li>2 kg de mandioca na manteiga</li>
 </ul>
-<div class="promo-price"><small>Valor do pacote</small><strong>R$ 2.100</strong></div>
-<a class="promo-cta" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20promo%C3%A7%C3%A3o%20corporativa%20do%20Pacote%20Prime%20para%20um%20evento%20da%20empresa." rel="noreferrer" target="_blank"><img alt="" aria-hidden="true" class="wa-brand-icon" src="assets/whatsapp.png"/>Quero o Pacote Prime</a>
+<a class="promo-invite" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Quero%20consultar%20os%20valores%20e%20as%20condi%C3%A7%C3%B5es%20do%20Pacote%20Prime%20para%20um%20evento%20corporativo." rel="noreferrer" target="_blank" aria-label="Ver valores do Pacote Prime pelo WhatsApp"><img alt="" aria-hidden="true" class="wa-brand-icon" src="assets/whatsapp.png"/><span>Ver valores</span></a>
 </article>
 <article class="promo-package">
 <span class="promo-tag">Ótimo custo-benefício</span>
@@ -762,8 +757,7 @@
 <ul class="promo-list">
 <li>3 kg de fraldão</li><li>3 kg de alcatra</li><li>2 kg de tulipas</li><li>2 kg de linguiça na brasa</li><li>2 kg de mandioca</li>
 </ul>
-<div class="promo-price"><small>Valor do pacote</small><strong>R$ 1.900</strong></div>
-<a class="promo-cta" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20promo%C3%A7%C3%A3o%20corporativa%20do%20Pacote%20Tradicional%20para%20um%20evento%20da%20empresa." rel="noreferrer" target="_blank"><img alt="" aria-hidden="true" class="wa-brand-icon" src="assets/whatsapp.png"/>Quero o Tradicional</a>
+<a class="promo-invite" href="https://wa.me/5534992478039?text=Ol%C3%A1%21%20Quero%20consultar%20os%20valores%20e%20as%20condi%C3%A7%C3%B5es%20do%20Pacote%20Tradicional%20para%20um%20evento%20corporativo." rel="noreferrer" target="_blank" aria-label="Ver valores do Pacote Tradicional pelo WhatsApp"><img alt="" aria-hidden="true" class="wa-brand-icon" src="assets/whatsapp.png"/><span>Ver valores</span></a>
 </article>
 </div>
 <div class="promo-benefits"><span>Churrasqueiro + auxiliar</span><span>Carvão e descartáveis</span><span>Todos os insumos</span><span>Brinde Réchaud</span></div>
